@@ -7,8 +7,8 @@ vim.keymap.set({"n", "v"}, "i", "gk")
 vim.keymap.set({"n", "v"}, "j", "h")
 vim.keymap.set({"n", "v"}, "k", "gj")
 
-vim.keymap.set("n", "I", "<c-u>zz")
-vim.keymap.set("n", "K", "<c-d>zz")
+vim.keymap.set({"n", "v"}, "I", "<c-u>zz")
+vim.keymap.set({"n", "v"}, "K", "<c-d>zz")
 
 vim.keymap.set({"n"}, "U", "<c-r>")
 
@@ -16,9 +16,6 @@ vim.keymap.set({"n"}, ">", ">>")
 vim.keymap.set({"n"}, "<", "<<")
 vim.keymap.set({"v"}, ">", ">gv")
 vim.keymap.set({"v"}, "<", "<gv")
-
-vim.keymap.set("v", "I", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv")
 
 vim.keymap.set({"n", "v"}, "y", [["+y]])
 vim.keymap.set("v", "p", [["_dP]])

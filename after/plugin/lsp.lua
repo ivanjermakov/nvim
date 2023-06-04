@@ -20,7 +20,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "<f3>", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<f2>", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader><cr>", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
 end)
 

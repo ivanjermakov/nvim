@@ -8,10 +8,10 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use {"catppuccin/nvim", as = "catppuccin"}
 
-    use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
-    use('nvim-treesitter/playground')
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use 'nvim-treesitter/playground'
     use 'nois-lang/nois.vim'
 
     use {
@@ -39,4 +39,22 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
+
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {
+            }
+        end
+    }
+
 end)

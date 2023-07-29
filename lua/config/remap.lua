@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<tab>", "<c-^>")
 
-vim.keymap.set("i", "<c-h>", "<c-o>db")
+vim.keymap.set("i", "<c-h>", "<esc>dbxi")
 vim.keymap.set("i", "<c-del>", "<c-o>de")
 
 vim.keymap.set("n", "Q", "@q")

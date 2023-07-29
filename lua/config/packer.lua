@@ -63,4 +63,12 @@ return require('packer').startup(function(use)
 
     use 'norcalli/nvim-colorizer.lua'
     require('colorizer').setup(nil)
+
+    use { "shortcuts/no-neck-pain.nvim", tag = "*", }
+    require('no-neck-pain').setup({
+        width = 120,
+        autocmds = {
+            enableOnVimEnter = true
+        }
+    })
 end)

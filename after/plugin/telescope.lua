@@ -20,6 +20,7 @@ require('telescope').setup {
                 ['<c-h>'] = "which_key",
                 ['<s-del>'] = require('telescope.actions').delete_buffer,
                 ['<Right>'] = require('telescope.actions').select_default,
+                ['<Esc>'] = require('telescope.actions').close,
             }
         }
     }

@@ -26,4 +26,5 @@ vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.laststatus = 0
-
+vim.opt.cmdheight = 0
+vim.opt.shortmess = vim.opt.shortmess + "lmwsI"

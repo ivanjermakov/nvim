@@ -25,4 +25,5 @@ vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.laststatus = 0
 

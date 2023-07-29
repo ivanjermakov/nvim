@@ -6,6 +6,7 @@ vim.keymap.set({"n", "v"}, "i", "h")
 vim.keymap.set({"n", "v"}, "i", "gk")
 vim.keymap.set({"n", "v"}, "j", "h")
 vim.keymap.set({"n", "v"}, "k", "gj")
+vim.keymap.set({"n", "v"}, "a", "a")
 
 vim.keymap.set({"n", "v"}, "I", "<c-u>zz")
 vim.keymap.set({"n", "v"}, "K", "<c-d>zz")

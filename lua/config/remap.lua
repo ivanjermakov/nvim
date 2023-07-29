@@ -22,7 +22,6 @@ vim.keymap.set({"n", "v"}, "y", [["+y]])
 vim.keymap.set("v", "p", [["_dP]])
 
 vim.keymap.set("i", "<c-c>", "<Esc>")
-vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<tab>", "<c-^>")
 

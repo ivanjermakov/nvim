@@ -31,12 +31,11 @@ require('telescope').setup {
     }
 }
 
-local fb_actions = require "telescope".extensions.file_browser.actions
+local fb_actions = require ("telescope").extensions.file_browser.actions
 require("telescope").setup {
     extensions = {
         file_browser = {
-            theme = "ivy",
-            hijack_netrw = true,
+            hijack_netrw = false,
             mappings = {
                 ['i'] = {
                     ['<Left>'] = fb_actions.goto_parent_dir,

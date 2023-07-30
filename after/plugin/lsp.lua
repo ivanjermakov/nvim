@@ -14,6 +14,8 @@ lsp.on_attach(function(client, bufnr)
         vim.cmd.LspStop('eslint')
         return
     end
+    -- disable semantic tokens since they mess up theme highting
+    client.server_capabilities.semanticTokensProvider = nil
 
     vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)

@@ -80,4 +80,11 @@ return require('packer').startup(function(use)
         opt = true,
         run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
     }
+
+    use {
+        'rmagatti/auto-session',
+        config = function()
+            require("auto-session").setup()
+        end
+    }
 end)

@@ -87,4 +87,13 @@ return require('packer').startup(function(use)
             require("auto-session").setup()
         end
     }
+
+    use({
+        "kylechui/nvim-surround",
+        tag = "*",
+        config = function()
+            require("nvim-surround").setup({
+            })
+        end
+    })
 end)

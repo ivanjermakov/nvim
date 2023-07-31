@@ -97,4 +97,7 @@ return require('packer').startup(function(use)
             require("nvim-surround").setup()
         end
     })
+
+    use 'm4xshen/autoclose.nvim'
+    require("autoclose").setup()
 end)

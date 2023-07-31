@@ -25,7 +25,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             type = "pwa-node",
             request = "attach",
             name = "Attach",
-            processId = require 'dap.utils'.pick_process,
+            processId = require('dap.utils').pick_process,
             cwd = "${workspaceFolder}",
         },
         {
@@ -42,6 +42,20 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             cwd = "${workspaceFolder}",
             console = "integratedTerminal",
             internalConsoleOptions = "neverOpen",
+        },
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "npm",
+            runtimeExecutable = "npm",
+            runtimeArgs = function()
+                local command = vim.fn.input({ prompt = "npm " })
+                local words = {}
+                for word in command:gmatch("[^%s]+") do table.insert(words, word) end
+                return words
+            end,
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
         }
     }
 end

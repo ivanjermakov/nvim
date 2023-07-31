@@ -119,3 +119,6 @@ require("dapui").setup({
         max_value_lines = 10
     }
 })
+
+vim.fn.sign_define('DapBreakpoint', { text = '⬤', texthl = 'DapBreakpoint' })
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = vim.g.terminal_color_1 })

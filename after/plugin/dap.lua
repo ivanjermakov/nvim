@@ -1,6 +1,11 @@
 vim.keymap.set('n', '<f7>', require("dap").toggle_breakpoint, {})
 vim.keymap.set('n', '<f8>', require("dap").step_over, {})
 vim.keymap.set('n', '<f9>', require("dap").continue, {})
+vim.keymap.set('n', '<leader>b', function()
+    require("dapui").toggle()
+    -- closing dapui window breaks no-neck-pain width for some reason
+    require("no-neck-pain").resize({ width = 120 })
+end, {})
 
 require("dap-vscode-js").setup({
     -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
@@ -59,3 +64,58 @@ for _, language in ipairs({ "typescript", "javascript" }) do
         }
     }
 end
+
+require("dapui").setup({
+    controls = {
+        element = "repl",
+        enabled = true,
+        icons = {
+            disconnect = "d",
+            pause = "pa",
+            play = "pl",
+            run_last = "rl",
+            step_back = "sb",
+            step_into = "si",
+            step_out = "so",
+            step_over = "sn",
+            terminate = "tr"
+        }
+    },
+    element_mappings = {},
+    expand_lines = true,
+    floating = {
+        border = "single",
+        mappings = {
+            close = { "q", "<Esc>" }
+        }
+    },
+    force_buffers = true,
+    icons = {
+        collapsed = "▸",
+        current_frame = "★",
+        expanded = "▼"
+    },
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.5
+        }, {
+            id = "repl",
+            size = 0.5
+        } },
+        position = "bottom",
+        size = 0.4
+    } },
+    mappings = {
+        edit = "e",
+        expand = { "<CR>", "<2-LeftMouse>" },
+        open = "o",
+        remove = "d",
+        repl = "r",
+        toggle = "t"
+    },
+    render = {
+        indent = 1,
+        max_value_lines = 10
+    }
+})

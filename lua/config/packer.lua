@@ -66,13 +66,15 @@ return require('packer').startup(function(use)
 
     use { "shortcuts/no-neck-pain.nvim", tag = "*", }
     require('no-neck-pain').setup({
-        width = 120,
+        width = 140,
         autocmds = {
-            enableOnVimEnter = true
+            enableOnVimEnter = true,
+            enableOnTabEnter = true
         }
     })
 
     use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", tag = "*", requires = { "mfussenegger/nvim-dap" } }
 
     use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
     use {
@@ -92,8 +94,7 @@ return require('packer').startup(function(use)
         "kylechui/nvim-surround",
         tag = "*",
         config = function()
-            require("nvim-surround").setup({
-            })
+            require("nvim-surround").setup()
         end
     })
 end)

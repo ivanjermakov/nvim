@@ -1,7 +1,9 @@
-vim.keymap.set('n', '<f7>', require("dap").toggle_breakpoint, {})
+vim.keymap.set('n', '<f32>', require("dap").toggle_breakpoint, {}) -- <c-f8>
 vim.keymap.set('n', '<f8>', require("dap").step_over, {})
+vim.keymap.set('n', '<f7>', require("dap").step_into, {})
+vim.keymap.set('n', '<f20>', require("dap").step_out, {}) -- <s-f8>
 vim.keymap.set('n', '<f9>', require("dap").continue, {})
-vim.keymap.set('n', '<leader>b', function()
+vim.keymap.set('n', '<m-9>', function()
     require("dapui").toggle()
     -- closing dapui window breaks no-neck-pain width for some reason
     require("no-neck-pain").resize({ width = 120 })

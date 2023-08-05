@@ -44,4 +44,4 @@ vim.keymap.set("n", "<m-k>", ":wincmd j<cr>", { silent = true })
 vim.keymap.set("n", "<m-j>", ":wincmd h<cr>", { silent = true })
 vim.keymap.set("n", "<m-l>", ":wincmd l<cr>", { silent = true })
 
-vim.keymap.set("n", "<c-w>", "")
+vim.keymap.set("n", "<c-w>", "<nop>")

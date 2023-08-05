@@ -20,8 +20,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
     vim.keymap.set("n", "<c-q>", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<f3>", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "<f2>", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<f2>", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<f14>", vim.diagnostic.goto_prev, opts) -- <s-f2>
     vim.keymap.set("n", "<leader><cr>", vim.lsp.buf.code_action, opts)
 
     -- enable selected reference highlighting across the buffer

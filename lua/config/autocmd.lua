@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"*"},
+    pattern = { "*" },
     callback = function()
         vim.opt.formatoptions:remove("o")
         -- vim.opt.cindent = true

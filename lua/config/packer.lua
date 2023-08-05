@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'ivanjermakov/mellow.nvim'
+    vim.cmd [[colorscheme mellow]]
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -48,16 +49,6 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim',
         config = function()
             require('gitsigns').setup()
-        end
-    }
-
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-            }
         end
     }
 

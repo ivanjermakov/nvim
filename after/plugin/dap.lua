@@ -22,22 +22,21 @@ for _, language in ipairs({ "typescript", "javascript" }) do
         {
             type = "pwa-node",
             request = "launch",
-            name = "Launch file",
+            name = "file",
             program = "${file}",
             cwd = "${workspaceFolder}",
         },
         {
             type = "pwa-node",
             request = "attach",
-            name = "Attach",
+            name = "process",
             processId = require('dap.utils').pick_process,
             cwd = "${workspaceFolder}",
         },
         {
             type = "pwa-node",
             request = "launch",
-            name = "Debug Jest Tests",
-            -- trace = true, -- include debugger info
+            name = "jest",
             runtimeExecutable = "node",
             runtimeArgs = {
                 "./node_modules/jest/bin/jest.js",
@@ -96,13 +95,11 @@ require("dapui").setup({
         expanded = "▼"
     },
     layouts = { {
-        elements = { {
-            id = "scopes",
-            size = 0.5
-        }, {
-            id = "repl",
-            size = 0.5
-        } },
+        elements = {
+            { id = "scopes",  size = 0.3 },
+            { id = "repl", size = 0.3 },
+            { id = "console", size = 0.4 }
+        },
         position = "bottom",
         size = 0.4
     } },

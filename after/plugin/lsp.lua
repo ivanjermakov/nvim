@@ -22,7 +22,19 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<c-q>", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<f2>", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "<f14>", vim.diagnostic.goto_prev, opts) -- <s-f2>
-    vim.keymap.set("n", "<leader><cr>", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<m-cr>", vim.lsp.buf.code_action, opts)
+    vim.keymap.set(
+        "n",
+        "<leader>o",
+        function()
+            vim.lsp.buf.execute_command({
+                command = "_typescript.organizeImports",
+                arguments = { vim.api.nvim_buf_get_name(0) },
+                title = ""
+            })
+        end,
+        opts
+    )
 
     -- enable selected reference highlighting across the buffer
     if client.server_capabilities.documentHighlightProvider then

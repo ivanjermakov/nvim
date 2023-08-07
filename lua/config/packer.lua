@@ -89,8 +89,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    use 'm4xshen/autoclose.nvim'
-    require("autoclose").setup()
-
     use 'folke/neodev.nvim'
+
+    use 'lukas-reineke/indent-blankline.nvim'
 end)

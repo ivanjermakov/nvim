@@ -59,4 +59,11 @@ vim.diagnostic.config({
 
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
+local cmp = require 'cmp'
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    }),
+})
+
 lsp.setup()

@@ -1,19 +1,13 @@
-local lsp = require("lsp-zero")
-
-lsp.preset("recommended")
+local lsp = require("lsp-zero").preset("recommended")
 
 lsp.ensure_installed({
-    'tsserver',
-    'rust_analyzer',
+    "tsserver",
+    "rust_analyzer",
 })
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    if client.name == "eslint" then
-        vim.cmd.LspStop('eslint')
-        return
-    end
     -- disable semantic tokens since they mess up theme highting
     client.server_capabilities.semanticTokensProvider = nil
 
@@ -59,8 +53,10 @@ lsp.set_preferences({
     sign_icons = {}
 })
 
-lsp.setup()
-
 vim.diagnostic.config({
     virtual_text = false,
 })
+
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+
+lsp.setup()

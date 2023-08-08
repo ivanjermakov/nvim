@@ -7,6 +7,13 @@ return require("packer").startup(function(use)
     vim.cmd [[colorscheme mellow]]
 
     use {
+        "ivanjermakov/troublesum.nvim",
+        config = function()
+            require("troublesum").setup()
+        end
+    }
+
+    use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
         requires = { { "nvim-lua/plenary.nvim" } }
     }

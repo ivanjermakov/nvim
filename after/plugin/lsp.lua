@@ -11,12 +11,12 @@ lsp.on_attach(function(client, bufnr)
     -- disable semantic tokens since they mess up theme highting
     client.server_capabilities.semanticTokensProvider = nil
 
-    vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
     vim.keymap.set("n", "<c-q>", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<f2>", vim.diagnostic.goto_next, opts)
     vim.keymap.set("n", "<f14>", vim.diagnostic.goto_prev, opts) -- <s-f2>
     vim.keymap.set("n", "<m-cr>", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<f6>", vim.lsp.buf.rename, opts)
     vim.keymap.set(
         "n",
         "<leader>o",
@@ -64,6 +64,9 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    }
 })
 
 lsp.setup()

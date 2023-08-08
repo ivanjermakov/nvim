@@ -50,3 +50,6 @@ require("telescope").setup {
 }
 require("telescope").load_extension "file_browser"
 vim.keymap.set("n", "<m-f>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
+
+require("todo-comments").setup({})
+vim.keymap.set({"n", "i"}, "<m-6>", ":TodoTelescope<cr>")

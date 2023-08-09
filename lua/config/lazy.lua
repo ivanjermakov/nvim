@@ -23,7 +23,7 @@ require("lazy").setup({
 
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
+        tag = "0.1.2",
         dependencies = { { "nvim-lua/plenary.nvim" } }
     },
     {
@@ -37,27 +37,9 @@ require("lazy").setup({
 
     {
         "nvim-treesitter/nvim-treesitter",
-        opts = {
-            ensure_installed = { "help", "javascript", "typescript", "c", "lua", "rust" },
-            sync_install = false,
-            indent = { enable = true },
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<c-w>",
-                    node_incremental = "<c-w>",
-                    scope_incremental = ".",
-                    node_decremental = ",",
-                },
-            },
-
-        },
+        build = ":TSUpdate"
     },
-    -- "nvim-treesitter/playground",
+    "nvim-treesitter/playground",
 
     "nois-lang/nois.vim",
 
@@ -66,7 +48,24 @@ require("lazy").setup({
         branch = 'v2.x',
         dependencies = {
             { "neovim/nvim-lspconfig" },
-            { "williamboman/mason.nvim" },
+            {
+                "williamboman/mason.nvim",
+                opts = {
+                    ui = {
+                        keymaps = {
+                            toggle_package_expand = "<CR>",
+                            install_package = "I",
+                            update_package = "u",
+                            check_package_version = "c",
+                            update_all_packages = "U",
+                            check_outdated_packages = "C",
+                            uninstall_package = "X",
+                            cancel_installation = "<C-c>",
+                            apply_language_filter = "<C-f>",
+                        },
+                    }
+                }
+            },
             { "williamboman/mason-lspconfig.nvim" },
 
             { "hrsh7th/nvim-cmp" },

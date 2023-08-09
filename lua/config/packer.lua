@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
             require("troublesum").setup()
         end
     }
+    use "ivanjermakov/telescope-file-structure.nvim"
 
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.0",

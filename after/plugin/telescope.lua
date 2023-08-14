@@ -58,7 +58,21 @@ vim.keymap.set("n", "<leader>f", ":Telescope file_structure<CR>", { noremap = tr
 require("todo-comments").setup({
     signs = false,
     highlight = {
-        pattern = "^\b$"
-    }
+        keyword = "fg",
+        before = "fg",
+        after = "fg",
+        pattern = [[.*<(KEYWORDS)\s*]],
+    },
+    search = {
+        pattern = [[\b(KEYWORDS)\b]],
+    },
+    colors = {
+        error = { "Todo" },
+        warning = { "Todo" },
+        info = { "Todo" },
+        hint = { "Todo" },
+        default = { "Todo" },
+        test = { "Todo" }
+    },
 })
 vim.keymap.set({ "n", "i" }, "<m-6>", ":TodoTelescope<cr>")

@@ -45,3 +45,11 @@ vim.keymap.set("n", "<m-j>", ":wincmd h<cr>", { silent = true })
 vim.keymap.set("n", "<m-l>", ":wincmd l<cr>", { silent = true })
 
 vim.keymap.set("n", "<c-w>", "<nop>")
+
+vim.keymap.set("n", "<esc>", function()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        if vim.api.nvim_win_get_config(win).relative == "win" then
+            vim.api.nvim_win_close(win, false)
+        end
+    end
+end)

@@ -127,6 +127,10 @@ require("lazy").setup({
     "folke/neodev.nvim",
 
     "lukas-reineke/indent-blankline.nvim",
+    {
+        "lukas-reineke/virt-column.nvim",
+        config = true
+    },
 
     {
         "folke/flash.nvim",

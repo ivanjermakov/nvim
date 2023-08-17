@@ -12,22 +12,25 @@ vim.keymap.set("n", "<leader>r", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>i", builtin.lsp_implementations, {})
 vim.keymap.set("n", "<m-d>", builtin.diagnostics, {})
 
+local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
         sorting_strategy = "ascending",
         mappings = {
             n = {
-                ['<s-del>'] = require('telescope.actions').delete_buffer,
-                ['i'] = require('telescope.actions').move_selection_previous,
-                ['k'] = require('telescope.actions').move_selection_next,
+                ['<s-del>'] = actions.delete_buffer,
+                ['i'] = actions.move_selection_previous,
+                ['k'] = actions.move_selection_next,
                 ['j'] = false,
-                ['<Right>'] = require('telescope.actions').select_default,
+                ['<right>'] = actions.select_default,
             },
             i = {
                 -- ['<c-h>'] = "which_key",
-                ['<s-del>'] = require('telescope.actions').delete_buffer,
-                ['<Right>'] = require('telescope.actions').select_default,
-                ['<Esc>'] = require('telescope.actions').close,
+                ['<s-del>'] = actions.delete_buffer,
+                ['<right>'] = actions.select_default,
+                ['<esc>'] = actions.close,
+                ['<m-up>'] = actions.cycle_history_prev,
+                ['<m-down>'] = actions.cycle_history_next,
             }
         }
     }

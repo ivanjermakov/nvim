@@ -53,3 +53,5 @@ vim.keymap.set("n", "<esc>", function()
         end
     end
 end)
+
+vim.keymap.set("v", "<leader>s", [[:s/, /,\r/<cr>]])

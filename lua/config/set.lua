@@ -31,6 +31,8 @@ vim.opt.cmdheight = 0
 vim.opt.shortmess = vim.opt.shortmess + "lmwsI"
 vim.opt.fillchars = "eob: "
 
+vim.opt.mouse = ""
+
 vim.opt.cursorline = true
 
 vim.opt.colorcolumn = "120"

@@ -62,7 +62,8 @@ require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 local cmp = require 'cmp'
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<cr>'] = cmp.mapping.confirm({ select = true }),
+        ['<m-cr>'] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
     }),
     completion = {
         completeopt = 'menu,menuone,noinsert'

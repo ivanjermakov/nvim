@@ -45,7 +45,7 @@ require("lazy").setup({
 
     {
         "VonHeikemen/lsp-zero.nvim",
-        branch = 'v2.x',
+        branch = "v2.x",
         dependencies = {
             { "neovim/nvim-lspconfig" },
             {
@@ -129,7 +129,9 @@ require("lazy").setup({
     "lukas-reineke/indent-blankline.nvim",
     {
         "lukas-reineke/virt-column.nvim",
-        config = true
+        opts = {
+            char = "│"
+        }
     },
 
     {
@@ -147,6 +149,19 @@ require("lazy").setup({
             })
         end
     },
+
+    {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        opts = {
+            open_mapping = "<f12>",
+            highlights = {
+                Normal = { link = "Normal" },
+                NormalFloat = { link = 'NormalFloat' },
+                FloatBorder = { link = 'FloatBorder' },
+            }
+        }
+    }
 })
 
 require("no-neck-pain").setup({

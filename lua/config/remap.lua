@@ -54,4 +54,7 @@ vim.keymap.set("n", "<esc>", function()
     end
 end)
 
-vim.keymap.set("v", "<leader>s", [[:s/, /,\r/<cr>]])
+vim.keymap.set("v", "<leader>s", [[:s/, /,\r/g<cr>]])
+
+vim.keymap.set("t", "<esc>", [[<c-\><c-n>]])
+vim.keymap.set("n", "<f12>", [[<c-\><c-n>]])

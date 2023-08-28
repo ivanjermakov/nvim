@@ -155,6 +155,7 @@ require("lazy").setup({
         version = "*",
         opts = {
             open_mapping = "<f12>",
+            direction = "float",
             highlights = {
                 Normal = { link = "Normal" },
                 NormalFloat = { link = 'NormalFloat' },

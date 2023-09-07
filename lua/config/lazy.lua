@@ -20,6 +20,12 @@ require("lazy").setup({
         end
     },
     "ivanjermakov/telescope-file-structure.nvim",
+    {
+        "ivanjermakov/oh-no-my-buffers.nvim",
+        config = function()
+            require("oh-no-my-buffers").setup()
+        end
+    },
 
     {
         "nvim-telescope/telescope.nvim",

@@ -6,7 +6,7 @@ vim.keymap.set(
 )
 vim.keymap.set('n', '<c-n>', builtin.find_files, {})
 vim.keymap.set('n', '<c-f>', builtin.live_grep, {})
-vim.keymap.set('n', '<c-e>', builtin.buffers, {})
+vim.keymap.set('n', '<c-e>', function() builtin.buffers({ sort_mru = true }) end, {})
 vim.keymap.set("n", "<leader>d", builtin.lsp_definitions, {})
 vim.keymap.set("n", "<leader>r", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>i", builtin.lsp_implementations, {})

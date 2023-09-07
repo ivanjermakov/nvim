@@ -20,11 +20,12 @@ require("lazy").setup({
         end
     },
     "ivanjermakov/telescope-file-structure.nvim",
+
     {
-        "ivanjermakov/oh-no-my-buffers.nvim",
-        config = function()
-            require("oh-no-my-buffers").setup()
-        end
+        'rmagatti/auto-session',
+        opts = {
+            log_level = "error",
+        }
     },
 
     {

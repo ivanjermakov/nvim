@@ -60,3 +60,4 @@ vim.keymap.set("t", "<esc>", [[<c-\><c-n>]])
 vim.keymap.set("n", "<f12>", [[<c-\><c-n>]])
 
 vim.keymap.set("n", "<leader>n", ":NoNeckPain<cr>")
+vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<cr>")

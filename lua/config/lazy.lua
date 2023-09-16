@@ -143,6 +143,7 @@ require("lazy").setup({
 
     {
         "folke/flash.nvim",
+        enabled = false,
         config = function()
             require("flash").setup({
                 label = {

@@ -108,7 +108,23 @@ require("lazy").setup({
         end
     },
 
-    "shortcuts/no-neck-pain.nvim",
+    {
+        "shortcuts/no-neck-pain.nvim",
+        config = function()
+            require("no-neck-pain").setup({
+                width = 140,
+                autocmds = {
+                    enableOnVimEnter = true,
+                    enableOnTabEnter = true
+                },
+                buffers = {
+                    right = {
+                        enabled = false
+                    }
+                }
+            })
+        end
+    },
 
     "mfussenegger/nvim-dap",
     {
@@ -170,18 +186,14 @@ require("lazy").setup({
                 FloatBorder = { link = 'FloatBorder' },
             }
         }
-    }
-})
-
-require("no-neck-pain").setup({
-    width = 140,
-    autocmds = {
-        enableOnVimEnter = true,
-        enableOnTabEnter = true
     },
-    buffers = {
-        right = {
-            enabled = false
-        }
+
+    {
+        'Wansmer/langmapper.nvim',
+        lazy = false,
+        priority = 1,
+        config = function()
+            require('langmapper').setup({})
+        end,
     }
 })

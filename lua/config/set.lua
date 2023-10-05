@@ -46,3 +46,5 @@ vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpo
 -- https://github.com/neovim/neovim/issues/2454#issuecomment-98403203
 vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 0
+
+vim.g.no_man_maps = true

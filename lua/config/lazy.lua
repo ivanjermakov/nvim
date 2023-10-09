@@ -47,8 +47,8 @@ require("lazy").setup({
         build = ":TSUpdate"
     },
     {
-       "nvim-treesitter/nvim-treesitter-textobjects",
-       dependencies = { "nvim-treesitter/nvim-treesitter" }
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = { "nvim-treesitter/nvim-treesitter" }
     },
     "nvim-treesitter/playground",
 
@@ -189,6 +189,23 @@ require("lazy").setup({
                 NormalFloat = { link = 'NormalFloat' },
                 FloatBorder = { link = 'FloatBorder' },
             }
+        }
+    },
+
+    {
+        "rest-nvim/rest.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            result_split_in_place = true,
+            result = {
+                show_url = true,
+                formatters = {
+                    json = "jq",
+                    html = function(body)
+                        return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
+                    end
+                },
+            },
         }
     }
 })

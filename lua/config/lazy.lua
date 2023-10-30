@@ -159,6 +159,9 @@ require("lazy").setup({
         opts = {
             indent = {
                 char = "│"
+            },
+            scope = {
+                show_start = false
             }
         }
     },

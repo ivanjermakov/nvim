@@ -20,6 +20,8 @@ vim.keymap.set({ "v" }, "<", "<gv")
 
 vim.keymap.set({ "n", "v" }, "y", [["+y]])
 vim.keymap.set("v", "p", [["_dP]])
+vim.keymap.set("v", "d", [["_d]])
+vim.keymap.set({"n", "v"}, "c", [["_c]])
 
 vim.keymap.set("i", "<c-c>", "<Esc>")
 

@@ -67,7 +67,27 @@ vim.diagnostic.config({
     virtual_text = false,
 })
 
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+local lspconfig = require("lspconfig")
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            assist = {
+                importEnforceGranularity = true,
+                importPrefix = 'crate',
+            },
+            checkOnSave = {
+                command = 'clippy',
+            },
+            diagnostics = {
+                enable = true,
+                experimental = {
+                    enable = true,
+                },
+            },
+        },
+    },
+}
 
 local cmp = require 'cmp'
 cmp.setup({

@@ -10,7 +10,7 @@ vim.keymap.set('n', '<c-e>', function() builtin.buffers({ sort_mru = true }) end
 vim.keymap.set("n", "<leader>d", builtin.lsp_definitions, {})
 vim.keymap.set("n", "<leader>r", builtin.lsp_references, {})
 vim.keymap.set("n", "<leader>i", builtin.lsp_implementations, {})
-vim.keymap.set("n", "<m-d>", builtin.diagnostics, {})
+vim.keymap.set("n", "<m-d>", function() builtin.diagnostics({ severity_bound = 0 }) end, {})
 
 local actions = require('telescope.actions')
 require('telescope').setup {

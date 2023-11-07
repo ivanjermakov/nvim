@@ -12,7 +12,9 @@ lsp.on_attach(function(client, bufnr)
     client.server_capabilities.semanticTokensProvider = nil
 
     vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
-    vim.keymap.set("n", "<c-q>", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<c-q>", function()
+        for _ = 1, 2 do vim.lsp.buf.hover() end
+    end, opts)
     vim.keymap.set(
         "n", "<f2>",
         function() vim.diagnostic.goto_next({ severity = get_highest_severity(0) }) end,

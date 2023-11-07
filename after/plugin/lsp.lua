@@ -13,8 +13,16 @@ lsp.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
     vim.keymap.set("n", "<c-q>", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<f2>", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "<f14>", vim.diagnostic.goto_prev, opts) -- <s-f2>
+    vim.keymap.set(
+        "n", "<f2>",
+        function() vim.diagnostic.goto_next({ severity = get_highest_severity(0) }) end,
+        opts
+    )
+    vim.keymap.set(
+        "n", "<f14>",
+        function() vim.diagnostic.goto_prev({ severity = get_highest_severity(0) }) end,
+        opts
+    ) -- <s-f2>
     vim.keymap.set("n", "<m-cr>", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<f6>", vim.lsp.buf.rename, opts)
     vim.keymap.set(
@@ -71,3 +79,15 @@ cmp.setup({
 })
 
 lsp.setup()
+
+function get_highest_severity(bufnr)
+    local diags = vim.diagnostic.get(bufnr)
+    local highest = vim.diagnostic.severity.HINT
+    for _, diag in ipairs(diags) do
+        local sev = diag.severity
+        if sev ~= nil and sev < highest then
+            highest = sev
+        end
+    end
+    return highest
+end

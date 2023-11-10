@@ -85,6 +85,9 @@ lspconfig.rust_analyzer.setup {
                     enable = true,
                 },
             },
+            completion = {
+                snippets = "none"
+            }
         },
     },
 }

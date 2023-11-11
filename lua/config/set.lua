@@ -28,6 +28,7 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 
 vim.opt.ruler = false
+vim.opt.showcmd = false
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 0
 vim.opt.statusline = " "
@@ -40,7 +41,7 @@ vim.opt.cursorline = true
 
 vim.opt.colorcolumn = "120"
 
-vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.opt.sessionoptions = "buffers,curdir,terminal"
 
 -- fixes nasty bug when fast press of <esc><key> is treated as <m-key>
 -- https://github.com/neovim/neovim/issues/2454#issuecomment-98403203

@@ -93,7 +93,7 @@ require("dapui").setup({
     force_buffers = true,
     icons = {
         collapsed = "▸",
-        current_frame = "★",
+        current_frame = "*",
         expanded = "▼"
     },
     layouts = { {
@@ -119,5 +119,5 @@ require("dapui").setup({
     }
 })
 
-vim.fn.sign_define('DapBreakpoint', { text = '⬤', texthl = 'DapBreakpoint' })
+vim.fn.sign_define('DapBreakpoint', { text = '●', texthl = 'DapBreakpoint' })
 vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = vim.g.terminal_color_1 })

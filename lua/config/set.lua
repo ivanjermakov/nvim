@@ -49,3 +49,5 @@ vim.opt.ttimeout = true
 vim.opt.ttimeoutlen = 0
 
 vim.g.no_man_maps = true
+
+vim.g.editorconfig = false

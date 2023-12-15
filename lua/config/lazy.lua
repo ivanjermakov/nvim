@@ -53,6 +53,7 @@ require("lazy").setup({
     "nvim-treesitter/playground",
 
     "nois-lang/nois.vim",
+    "purescript-contrib/purescript-vim",
 
     {
         "VonHeikemen/lsp-zero.nvim",

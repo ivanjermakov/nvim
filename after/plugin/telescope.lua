@@ -50,14 +50,19 @@ require("telescope").setup {
                     ['<Left>'] = fb_actions.goto_parent_dir,
                 },
             },
+        },
+        ["ui-select"] = {
+            require("telescope.themes").get_cursor()
         }
     },
 }
-require("telescope").load_extension "file_browser"
+require("telescope").load_extension("file_browser")
 vim.keymap.set("n", "<m-f>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
-require("telescope").load_extension "file_structure"
+require("telescope").load_extension("file_structure")
 vim.keymap.set("n", "<leader>f", ":Telescope file_structure<CR>", { noremap = true })
+
+require("telescope").load_extension("ui-select")
 
 require("todo-comments").setup({
     signs = false,

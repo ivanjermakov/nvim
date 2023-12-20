@@ -8,10 +8,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "ivanjermakov/mellow.nvim",
+        "ivanjermakov/nellow.nvim",
         priority = 80,
         config = function()
-            vim.cmd [[colorscheme mellow]]
+            vim.cmd [[colorscheme nellow]]
             vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
         end
     },

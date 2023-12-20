@@ -30,8 +30,8 @@ require("lazy").setup({
 
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.2",
-        dependencies = { { "nvim-lua/plenary.nvim" } }
+        tag = "0.1.5",
+        dependencies = { { "nvim-lua/plenary.nvim" } },
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -42,8 +42,16 @@ require("lazy").setup({
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     },
     'nvim-telescope/telescope-ui-select.nvim',
-
-    'stevearc/dressing.nvim',
+    {
+        'stevearc/dressing.nvim',
+        config = function()
+            require("dressing").setup({
+                select = {
+                    telescope = require("telescope.themes").get_cursor()
+                }
+            })
+        end,
+    },
 
     {
         "nvim-treesitter/nvim-treesitter",

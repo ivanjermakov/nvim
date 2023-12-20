@@ -9,8 +9,10 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {
         "ivanjermakov/mellow.nvim",
+        priority = 80,
         config = function()
             vim.cmd [[colorscheme mellow]]
+            vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
         end
     },
     {
@@ -46,6 +48,13 @@ require("lazy").setup({
         'stevearc/dressing.nvim',
         config = function()
             require("dressing").setup({
+                input = {
+                    override = function(opts)
+                        opts.anchor = "NW"
+                        opts.row = 1
+                        return opts
+                    end
+                },
                 select = {
                     telescope = require("telescope.themes").get_cursor()
                 }

@@ -21,7 +21,7 @@ require("lazy").setup({
             require("troublesum").setup()
         end
     },
-    "ivanjermakov/telescope-file-structure.nvim",
+    { "ivanjermakov/telescope-file-structure.nvim" },
 
     {
         'rmagatti/auto-session',
@@ -43,7 +43,7 @@ require("lazy").setup({
         "folke/todo-comments.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     },
-    'nvim-telescope/telescope-ui-select.nvim',
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     {
         'stevearc/dressing.nvim',
         config = function()
@@ -70,10 +70,10 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter-textobjects",
         dependencies = { "nvim-treesitter/nvim-treesitter" }
     },
-    "nvim-treesitter/playground",
+    { "nvim-treesitter/playground" },
 
-    "nois-lang/nois.vim",
-    "purescript-contrib/purescript-vim",
+    { "nois-lang/nois.vim" },
+    { "purescript-contrib/purescript-vim" },
 
     {
         "VonHeikemen/lsp-zero.nvim",
@@ -151,7 +151,7 @@ require("lazy").setup({
         end
     },
 
-    "mfussenegger/nvim-dap",
+    { "mfussenegger/nvim-dap" },
     {
         "rcarriga/nvim-dap-ui",
         dependencies = { "mfussenegger/nvim-dap" }
@@ -166,13 +166,12 @@ require("lazy").setup({
     },
 
     {
-        "kylechui/nvim-surround",
-        config = function()
-            require("nvim-surround").setup()
-        end
+        'echasnovski/mini.surround',
+        version = "*",
+        config = true
     },
 
-    "folke/neodev.nvim",
+    { "folke/neodev.nvim" },
 
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -240,5 +239,5 @@ require("lazy").setup({
                 },
             },
         }
-    }
+    },
 })

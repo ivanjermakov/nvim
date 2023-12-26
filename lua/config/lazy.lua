@@ -12,6 +12,7 @@ require("lazy").setup({
         priority = 80,
         config = function()
             vim.cmd [[colorscheme nellow]]
+            vim.api.nvim_set_hl(0, "typescriptArrowFuncArg", { link = "NONE" })
             vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
         end
     },

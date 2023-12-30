@@ -89,17 +89,35 @@ hi link typescriptObjectAsyncKeyword NONE
 hi link typescriptAsyncFor NONE
 hi link typescriptFuncKeyword NONE
 hi link typescriptAsyncFunc NONE
-hi link typescriptClassKeyword NONE
-hi link typescriptClassExtends NONE
 hi link typescriptReadonlyModifier NONE
-hi link typescriptInterfaceKeyword NONE
-hi link typescriptInterfaceExtends NONE
 hi link typescriptConstraint NONE
 hi link typescriptReadonlyArrayKeyword NONE
 hi link typescriptTypeQuery NONE
-hi link typescriptAccessibilityModifier NONE
 hi link typescriptAliasKeyword NONE
 hi link typescriptUserDefinedType NONE
 hi link typescriptConstructor NONE
 hi link typescriptAssertType NONE
+
+hi link typescriptSpecial NONE
+hi link typescriptASCII NONE
+hi link typescriptCastKeyword NONE
+hi link typescriptImport NONE
+hi link typescriptImportType NONE
+hi link typescriptAmbientDeclaration NONE
+hi link typescriptExportType NONE
+hi link typescriptModule NONE
+hi link typescriptTry NONE
+hi link typescriptExceptions NONE
+hi link typescriptAbstract NONE
+hi link typescriptFuncType NONE
+hi link typescriptMappedIn NONE
+hi link typescriptDecorator NONE
+
+hi link typescriptDestructureVariable NONE
+hi link typescriptFuncArg NONE
+hi link typescriptArrowFuncArg NONE
+hi link typescriptOptionalMark NONE
+hi link typescriptCall NONE
+hi link typescriptParamImpl NONE
+
 

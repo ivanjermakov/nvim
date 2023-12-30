@@ -220,6 +220,10 @@ require("lazy").setup({
                 Normal = { link = "Normal" },
                 NormalFloat = { link = 'NormalFloat' },
                 FloatBorder = { link = 'FloatBorder' },
+            },
+            float_opts = {
+                width = vim.api.nvim_win_get_width(0) - 1,
+                height = vim.api.nvim_win_get_height(0) - 2,
             }
         }
     },

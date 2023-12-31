@@ -12,6 +12,10 @@ lsp.on_attach(function(client, bufnr)
     -- disable semantic tokens since they mess up theme highting
     client.server_capabilities.semanticTokensProvider = nil
 
+    if client.name == "tsserver" or client.name == "html" or client.name == "cssls" then
+        client.server_capabilities.documentFormattingProvider = false
+    end
+
     vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
     vim.keymap.set("n", "<c-q>", function()
         for _ = 1, 2 do vim.lsp.buf.hover() end

@@ -80,5 +80,3 @@ vim.keymap.set("n", "gl", function()
         vim.cmd('norm! gF')
     end
 end)
-
-vim.keymap.set("n", "<leader>p", ":silent !prettier --write %<cr>", { silent = true })

@@ -76,13 +76,13 @@ local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 lspconfig.rust_analyzer.setup {
     settings = {
-        ['rust-analyzer'] = {
+        ["rust-analyzer"] = {
             assist = {
                 importEnforceGranularity = true,
-                importPrefix = 'crate',
+                importPrefix = "crate",
             },
             checkOnSave = {
-                command = 'clippy',
+                command = "clippy",
             },
             diagnostics = {
                 enable = true,
@@ -103,17 +103,6 @@ lspconfig.purescriptls.setup {
         },
     },
 }
-
-local cmp = require 'cmp'
-cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-        ['<cr>'] = cmp.mapping.confirm({ select = true }),
-        ['<m-cr>'] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
-    }),
-    completion = {
-        completeopt = 'menu,menuone,noinsert'
-    }
-})
 
 lsp.setup()
 

@@ -16,3 +16,10 @@ vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
         end
     end
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = { "*" },
+    callback = function()
+        vim.cmd(":startinsert")
+    end
+})

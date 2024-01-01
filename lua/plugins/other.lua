@@ -46,23 +46,6 @@ return {
     },
     { "folke/neodev.nvim" },
     {
-        "akinsho/toggleterm.nvim",
-        version = "*",
-        opts = {
-            open_mapping = "<f12>",
-            direction = "float",
-            highlights = {
-                Normal = { link = "Normal" },
-                NormalFloat = { link = "NormalFloat" },
-                FloatBorder = { link = "FloatBorder" },
-            },
-            float_opts = {
-                width = vim.api.nvim_win_get_width(0) - 1,
-                height = vim.api.nvim_win_get_height(0) - 2,
-            }
-        }
-    },
-    {
         "rest-nvim/rest.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {
@@ -78,4 +61,23 @@ return {
             },
         }
     },
+    {
+        "ivanjermakov/plant.nvim",
+        config = function()
+            require("plant").setup({
+                create = function(key)
+                    if key == 2 then
+                        vim.cmd(":terminal lg")
+                    else
+                        vim.cmd(":terminal")
+                    end
+                    return vim.api.nvim_get_current_buf()
+                end
+            })
+
+            vim.keymap.set({ "n", "t" }, "<f10>", function() require("plant").open(1) end)
+            vim.keymap.set({ "n", "t" }, "<f11>", function() require("plant").open(2) end)
+            vim.keymap.set({ "n", "t" }, "<f12>", function() require("plant").open(3) end)
+        end
+    }
 }

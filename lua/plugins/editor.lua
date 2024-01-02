@@ -6,31 +6,14 @@ return {
         end
     },
     {
-        "numToStr/Comment.nvim",
+        'echasnovski/mini.comment',
+        version = '*',
         config = function()
-            require("Comment").setup({
-                padding = true,
-                sticky = true,
-                ignore = nil,
-                toggler = {
-                    line = "<c-_>",
-                    block = "<m-/>",
-                },
-                opleader = {
-                    line = "<c-_>",
-                    block = "<m-/>",
-                },
-                extra = {
-                    above = "gcO",
-                    below = "gco",
-                    eol = "gcA",
-                },
+            require("mini.comment").setup({
                 mappings = {
-                    basic = true,
-                    extra = false,
-                },
-                pre_hook = nil,
-                post_hook = nil,
+                    comment_line = '<c-/>',
+                    comment_visual = '<c-/>',
+                }
             })
         end
     },

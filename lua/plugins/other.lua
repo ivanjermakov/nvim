@@ -71,6 +71,7 @@ return {
                     else
                         vim.cmd(":terminal")
                     end
+                    vim.cmd(":setlocal nobuflisted")
                     return vim.api.nvim_get_current_buf()
                 end
             })

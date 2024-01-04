@@ -1,10 +1,4 @@
-local lsp = require("lsp-zero").preset("recommended")
-
-lsp.ensure_installed({
-    "tsserver",
-    "rust_analyzer",
-    "purescriptls",
-})
+local lsp = require("lsp-zero")
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }

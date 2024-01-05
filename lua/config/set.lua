@@ -51,3 +51,8 @@ vim.opt.ttimeoutlen = 0
 vim.g.no_man_maps = true
 
 vim.g.editorconfig = false
+
+vim.diagnostic.config({
+    virtual_text = false,
+})
+

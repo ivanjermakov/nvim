@@ -10,7 +10,7 @@ local function get_highest_severity(bufnr)
     return highest
 end
 
-local on_attach = function(args, bufnr)
+local on_attach = function(args)
     local opts = { buffer = args.buf }
     local client = vim.lsp.get_client_by_id(args.id)
 

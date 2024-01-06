@@ -11,8 +11,8 @@ return {
         config = function()
             require("mini.comment").setup({
                 mappings = {
-                    comment_line = '<c-/>',
-                    comment_visual = '<c-/>',
+                    comment_line = '<c-_>',
+                    comment_visual = '<c-_>',
                 }
             })
         end

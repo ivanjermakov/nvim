@@ -9,6 +9,10 @@ return {
             local fb_actions = telescope.extensions.file_browser.actions
             telescope.setup({
                 defaults = {
+                    layout_config = {
+                        height = { padding = 0 },
+                        width = { padding = 0 },
+                    },
                     sorting_strategy = "ascending",
                     mappings = {
                         n = {
@@ -65,7 +69,9 @@ return {
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+        lazy = true
     },
     {
         "folke/todo-comments.nvim",

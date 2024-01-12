@@ -1,11 +1,5 @@
 return {
     {
-        "rmagatti/auto-session",
-        opts = {
-            log_level = "error",
-        }
-    },
-    {
         "stevearc/dressing.nvim",
         config = function()
             require("dressing").setup({

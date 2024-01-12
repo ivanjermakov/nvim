@@ -18,18 +18,6 @@ return {
                         node_decremental = ",",
                     },
                 },
-                textobjects = {
-                    swap = {
-                        enable = true,
-                        swap_next = {
-                            ["<leader>s"] = "@parameter.inner",
-                        },
-                        swap_previous = {
-                            ["<leader>S"] = "@parameter.inner",
-                        },
-                    },
-                },
-
             })
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             parser_config.typescript = {

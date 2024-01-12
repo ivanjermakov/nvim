@@ -48,4 +48,15 @@ return {
             char = "│"
         }
     },
+    {
+        "Wansmer/sibling-swap.nvim",
+        config = function()
+            require('sibling-swap').setup({
+                keymaps = {
+                    ['<m-.>'] = 'swap_with_right',
+                    ['<m-,>'] = 'swap_with_left',
+                },
+            })
+        end
+    }
 }

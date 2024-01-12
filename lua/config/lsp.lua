@@ -15,7 +15,9 @@ local on_attach = function(args)
     local client = vim.lsp.get_client_by_id(args.id)
 
     -- disable semantic tokens since they mess up theme highting
-    client.server_capabilities.semanticTokensProvider = nil
+    if client.server_capabilities ~= nil then
+        client.server_capabilities.semanticTokensProvider = nil
+    end
 
     if client.name == "tsserver" or client.name == "html" or client.name == "cssls" then
         client.server_capabilities.documentFormattingProvider = false

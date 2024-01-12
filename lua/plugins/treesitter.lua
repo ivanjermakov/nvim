@@ -31,6 +31,13 @@ return {
                 },
 
             })
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+            parser_config.typescript = {
+                install_info = {
+                    url = "/D/project/clone/tree-sitter-typescript/typescript",
+                    files = { "src/parser.c", "src/scanner.c" },
+                },
+            }
         end
     },
     {

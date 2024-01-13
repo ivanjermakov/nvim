@@ -48,8 +48,8 @@ return {
             telescope.load_extension("file_browser")
             vim.keymap.set("n", "<m-f>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
-            telescope.load_extension("file_structure")
-            vim.keymap.set("n", "<leader>f", ":Telescope file_structure<CR>", { noremap = true })
+            telescope.load_extension("aerial")
+            vim.keymap.set("n", "<leader>f", ":Telescope aerial<CR>", { noremap = true })
 
             local builtin = require("telescope.builtin")
             vim.keymap.set(
@@ -101,5 +101,9 @@ return {
         end
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
-    { "ivanjermakov/telescope-file-structure.nvim" },
+    {
+        'stevearc/aerial.nvim',
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {},
+    }
 }

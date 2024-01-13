@@ -58,5 +58,14 @@ return {
                 },
             })
         end
+    },
+    {
+        "ggandor/leap.nvim",
+        config = function()
+            local leap = require("leap")
+            leap.opts.safe_labels = "sfnut"
+            leap.opts.labels = "sfnjklhodweimbuyvrgtaqpcxz"
+            vim.keymap.set({ 'n', 'x', 'o' }, 'm', function() leap.leap({ target_windows = { vim.fn.win_getid() } }) end)
+        end
     }
 }

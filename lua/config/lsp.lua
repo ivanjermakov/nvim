@@ -53,20 +53,22 @@ local on_attach = function(args)
     )
 
     -- enable selected reference highlighting across the buffer
-    if client.server_capabilities.documentHighlightProvider then
-        vim.api.nvim_create_autocmd("CursorHold", {
-            pattern = { "<buffer>" },
-            callback = function()
+    vim.api.nvim_create_autocmd("CursorHold", {
+        pattern = { "<buffer>" },
+        callback = function()
+            if client.server_capabilities.documentHighlightProvider then
                 vim.lsp.buf.document_highlight()
             end
-        })
-        vim.api.nvim_create_autocmd("CursorMoved", {
-            pattern = { "<buffer>" },
-            callback = function()
+        end
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+        pattern = { "<buffer>" },
+        callback = function()
+            if client.server_capabilities.documentHighlightProvider then
                 vim.lsp.buf.clear_references()
             end
-        })
-    end
+        end
+    })
 end
 
 require('mason').setup({

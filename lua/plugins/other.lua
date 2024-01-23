@@ -73,21 +73,5 @@ return {
             vim.keymap.set({ "n", "t" }, "<f11>", function() require("plant").open(2) end)
             vim.keymap.set({ "n", "t" }, "<f12>", function() require("plant").open(3) end)
         end
-    },
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        opts = {
-            cmdline = { view = "cmdline" },
-            messages = { view = "cmdline", view_search = false },
-            popupmenu = { enabled = false },
-            notify = { view = "cmdline", },
-            lsp = {
-                progress = { view = "cmdline" }
-            }
-        },
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        }
     }
 }

@@ -17,9 +17,20 @@ return {
             local null_ls = require("null-ls")
             null_ls.setup({
                 sources = {
-                    null_ls.builtins.formatting.prettier
+                    null_ls.builtins.formatting.biome.with({
+                        args = {
+                            'check',
+                            '--apply',
+                            '--linter-enabled=false',
+                            '--formatter-enabled=true',
+                            '--organize-imports-enabled=true',
+                            '--skip-errors',
+                            '$FILENAME',
+                        },
+                    }),
                 }
             })
         end
     },
 }
+

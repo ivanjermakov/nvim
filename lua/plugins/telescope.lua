@@ -24,7 +24,6 @@ return {
                         },
                         i = {
                             ["<s-del>"] = actions.delete_buffer,
-                            ["<right>"] = actions.select_default,
                             ["<esc>"] = actions.close,
                             ["<m-up>"] = actions.cycle_history_prev,
                             ["<m-down>"] = actions.cycle_history_next,

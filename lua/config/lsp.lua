@@ -89,6 +89,9 @@ require('mason').setup({
 require('mason-lspconfig').setup()
 
 local servers = {
+    jsonls = {},
+    angularls = {},
+    tsserver = {},
     rust_analyzer = {
         settings = {
             ["rust-analyzer"] = {
@@ -117,6 +120,9 @@ local servers = {
                 formatter = "purs-tidy",
             },
         },
+    },
+    biome = {
+        enabled = false
     }
 }
 
@@ -130,11 +136,15 @@ mason_lspconfig.setup({
 })
 mason_lspconfig.setup_handlers({
     function(server_name)
+        local server = servers[server_name] or {}
+        if (server.enabled == false) then
+            return
+        end
         require('lspconfig')[server_name].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
+            settings = server,
+            filetypes = server.filetypes,
         })
     end,
 })

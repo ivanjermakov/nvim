@@ -33,6 +33,7 @@ vim.opt.cmdheight = 0
 vim.opt.laststatus = 0
 vim.opt.statusline = " "
 vim.opt.shortmess = vim.opt.shortmess + "lmwsI"
+vim.opt.showmode = false
 vim.opt.fillchars = "eob: "
 
 vim.opt.mouse = ""

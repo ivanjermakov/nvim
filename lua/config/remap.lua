@@ -25,7 +25,7 @@ vim.keymap.set({ "n", "v" }, "c", [["_c]])
 
 vim.keymap.set("i", "<c-c>", "<Esc>")
 
-vim.keymap.set("n", "<tab>", ":bp<cr>", { silent = true })
+vim.keymap.set("n", "<tab>", function() last_buf() end)
 
 vim.keymap.set("i", "<c-h>", "<esc>dbxi")
 vim.keymap.set("i", "<c-del>", "<c-o>de")
@@ -80,3 +80,20 @@ vim.keymap.set("n", "gl", function()
         vim.cmd("norm! gF")
     end
 end)
+
+function last_buf()
+    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    -- TODO: lastused only counts in whole seconds, meaning that only one switch per second is possible
+    -- use BufEnter events to track buffer order more precisely
+    table.sort(bufs, function(a, b) return a.lastused >= b.lastused end)
+    local last
+    -- if current buf is unlisted, jump to the first listed, otherwise to the second one
+    if vim.o.buflisted then
+        last = bufs[2]
+    else
+        last = bufs[1]
+    end
+    if last ~= nil then
+        vim.api.nvim_set_current_buf(last.bufnr)
+    end
+end

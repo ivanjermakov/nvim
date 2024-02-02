@@ -61,10 +61,10 @@ return {
             require("plant").setup({
                 create = function(key)
                     vim.cmd(":terminal")
+                    vim.o.buflisted = false
                     if key == 2 then
                         vim.api.nvim_input("lg<cr>")
                     end
-                    vim.cmd(":setlocal nobuflisted")
                     return vim.api.nvim_get_current_buf()
                 end
             })

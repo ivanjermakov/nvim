@@ -25,7 +25,7 @@ vim.keymap.set({ "n", "v" }, "c", [["_c]])
 
 vim.keymap.set("i", "<c-c>", "<Esc>")
 
-vim.keymap.set("n", "<tab>", "<c-^>")
+vim.keymap.set("n", "<tab>", ":bp<cr>", { silent = true })
 
 vim.keymap.set("i", "<c-h>", "<esc>dbxi")
 vim.keymap.set("i", "<c-del>", "<c-o>de")
@@ -80,4 +80,3 @@ vim.keymap.set("n", "gl", function()
         vim.cmd("norm! gF")
     end
 end)
-

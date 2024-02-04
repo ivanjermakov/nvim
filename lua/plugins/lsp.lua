@@ -21,7 +21,7 @@ return {
                         args = {
                             'check',
                             '--apply',
-                            '--linter-enabled=false',
+                            '--linter-enabled=true',
                             '--formatter-enabled=true',
                             '--organize-imports-enabled=true',
                             '--skip-errors',
@@ -33,4 +33,3 @@ return {
         end
     },
 }
-

@@ -85,7 +85,7 @@ function last_buf()
     local bufs = vim.fn.getbufinfo({ buflisted = 1 })
     -- TODO: lastused only counts in whole seconds, meaning that only one switch per second is possible
     -- use BufEnter events to track buffer order more precisely
-    table.sort(bufs, function(a, b) return a.lastused >= b.lastused end)
+    table.sort(bufs, function(a, b) return a.lastused > b.lastused end)
     local last
     -- if current buf is unlisted, jump to the first listed, otherwise to the second one
     if vim.o.buflisted then

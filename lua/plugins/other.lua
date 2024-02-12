@@ -42,28 +42,30 @@ return {
     {
         "rest-nvim/rest.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-            result_split_in_place = true,
-            result = {
-                show_url = true,
-                formatters = {
-                    json = "jq",
-                    html = function(body)
-                        return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-                    end
+        config = function()
+            require("rest-nvim").setup({
+                result_split_in_place = true,
+                result = {
+                    show_url = true,
+                    formatters = {
+                        json = "jq",
+                        html = function(body)
+                            return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
+                        end
+                    },
                 },
-            },
-        }
+            })
+        end
     },
     {
         "ivanjermakov/plant.nvim",
         config = function()
             require("plant").setup({
                 create = function(key)
-                    vim.cmd(":terminal")
+                    vim.cmd.terminal()
                     vim.o.buflisted = false
                     if key == 2 then
-                        vim.api.nvim_input("lg<cr>")
+                        vim.api.nvim_chan_send(vim.bo.channel, "lg\r")
                     end
                     return vim.api.nvim_get_current_buf()
                 end

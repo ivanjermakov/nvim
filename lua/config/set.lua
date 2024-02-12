@@ -1,3 +1,7 @@
+local var = require("config.var")
+
+vim.api.nvim_command("set runtimepath^=" .. var.dev_path .. "/*")
+
 vim.opt.number = true
 vim.opt.ignorecase = true
 
@@ -56,4 +60,3 @@ vim.g.editorconfig = false
 vim.diagnostic.config({
     virtual_text = false,
 })
-

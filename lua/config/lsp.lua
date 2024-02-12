@@ -1,3 +1,5 @@
+local var = require("config.var")
+
 local function get_highest_severity(bufnr)
     local diags = vim.diagnostic.get(bufnr)
     local highest = vim.diagnostic.severity.HINT
@@ -116,7 +118,8 @@ local servers = {
         },
     },
     biome = {
-        -- enabled = false
+        -- enabled = false,
+        cmd = { var.dev_path .. "/clone/biome/target/release/biome", "lsp-proxy" }
     }
 }
 
@@ -139,6 +142,7 @@ mason_lspconfig.setup_handlers({
             on_attach = on_attach,
             settings = server,
             filetypes = server.filetypes,
+            cmd = server.cmd,
         })
     end,
 })

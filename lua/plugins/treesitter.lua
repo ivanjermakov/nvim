@@ -1,3 +1,5 @@
+local var = require("config.var")
+
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -22,8 +24,14 @@ return {
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             parser_config.typescript = {
                 install_info = {
-                    url = "/D/project/clone/tree-sitter-typescript/typescript",
+                    url = var.dev_path .. "/clone/tree-sitter-typescript/typescript",
                     files = { "src/parser.c", "src/scanner.c" },
+                },
+            }
+            parser_config.nois = {
+                install_info = {
+                    url = var.dev_path .. "/tree-sitter-nois",
+                    files = { "src/parser.c" },
                 },
             }
         end

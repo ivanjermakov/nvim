@@ -146,28 +146,3 @@ mason_lspconfig.setup_handlers({
         })
     end,
 })
-
-local cmp = require('cmp')
-local luasnip = require('luasnip')
-require('luasnip.loaders.from_vscode').lazy_load({ exclude = { "all" } })
-luasnip.config.setup({})
-
-cmp.setup {
-    completion = {
-        completeopt = 'menu,menuone,noinsert',
-    },
-    mapping = cmp.mapping.preset.insert({
-        ["<cr>"] = cmp.mapping.confirm({ select = true }),
-        ["<m-cr>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
-    }),
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-    },
-}

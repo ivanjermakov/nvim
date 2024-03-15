@@ -66,6 +66,7 @@ vim.keymap.set("n", "<leader>gb", function() require("gitsigns").blame_line() en
 vim.keymap.set("n", "<leader>gd", function()
     for _ = 1, 2 do require("gitsigns").preview_hunk() end
 end)
+vim.keymap.set("n", "<leader>gr", function() require("gitsigns").reset_hunk() end)
 
 vim.keymap.set("n", "<leader>hr", function() require("rest-nvim").run() end)
 

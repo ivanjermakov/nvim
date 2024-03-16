@@ -120,6 +120,11 @@ local servers = {
     biome = {
         -- enabled = false,
         cmd = { var.dev_path .. "/clone/biome/target/release/biome", "lsp-proxy" }
+    },
+    typos_lsp = {
+        init_options = {
+            diagnosticSeverity = "warning"
+        }
     }
 }
 
@@ -143,6 +148,7 @@ mason_lspconfig.setup_handlers({
             settings = server,
             filetypes = server.filetypes,
             cmd = server.cmd,
+            init_options = server.init_options,
         })
     end,
 })

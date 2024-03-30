@@ -38,21 +38,37 @@ return {
         version = "*",
         config = true
     },
-    { "folke/neodev.nvim" },
+    {
+        "folke/neodev.nvim",
+        enabled = false,
+        opts = {}
+    },
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+    },
     {
         "rest-nvim/rest.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "luarocks.nvim" },
+        ft = "http",
         config = function()
             require("rest-nvim").setup({
-                result_split_in_place = true,
                 result = {
-                    show_url = true,
-                    formatters = {
-                        json = "jq",
-                        html = function(body)
-                            return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-                        end
+                    split = {
+                        stay_in_current_window_after_split = true
                     },
+                    behavior = {
+                        show_info = {
+                            url = true
+                        },
+                        formatters = {
+                            json = "jq",
+                            html = function(body)
+                                return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
+                            end
+                        }
+                    }
                 },
             })
         end

@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ "CursorHold" }, {
+vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
     pattern = { "*" },
     nested = true,
     callback = function()

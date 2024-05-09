@@ -26,7 +26,7 @@ local on_attach = function(args)
         client.server_capabilities.documentFormattingProvider = false
     end
 
-    vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
+    vim.keymap.set("n", "<leader>l", function() vim.lsp.buf.format({ timeout_ms = 10 * 1000 }) end)
     vim.keymap.set("n", "<c-q>", function()
         for _ = 1, 2 do vim.lsp.buf.hover() end
     end, opts)
@@ -89,32 +89,30 @@ local servers = {
     angularls = {},
     tsserver = {},
     rust_analyzer = {
-        settings = {
-            ["rust-analyzer"] = {
-                assist = {
-                    importEnforceGranularity = true,
-                    importPrefix = "crate",
-                },
-                checkOnSave = {
-                    command = "clippy",
-                },
-                diagnostics = {
+        ["rust-analyzer"] = {
+            assist = {
+                importEnforceGranularity = true,
+                importPrefix = "crate",
+            },
+            checkOnSave = {
+                command = "clippy",
+            },
+            diagnostics = {
+                enable = true,
+                experimental = {
                     enable = true,
-                    experimental = {
-                        enable = true,
-                    },
                 },
-                completion = {
+            },
+            completion = {
+                callable = {
                     snippets = "none"
                 }
-            },
+            }
         },
     },
     purescriptls = {
-        settings = {
-            purescript = {
-                formatter = "purs-tidy",
-            },
+        purescript = {
+            formatter = "purs-tidy",
         },
     },
     biome = {

@@ -30,7 +30,7 @@ return {
             }
             parser_config.nois = {
                 install_info = {
-                    url = var.dev_path .. "/tree-sitter-nois",
+                    url = var.dev_path .. "/nois-lang/tree-sitter-nois",
                     files = { "src/parser.c" },
                 },
             }

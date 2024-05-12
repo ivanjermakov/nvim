@@ -67,5 +67,15 @@ return {
             leap.opts.labels = "sfnjklhodweimbuyvrgtaqpcxz"
             vim.keymap.set({ 'n', 'x', 'o' }, 'm', function() leap.leap({ target_windows = { vim.fn.win_getid() } }) end)
         end
-    }
+    },
+    {
+        "chrisgrieser/nvim-spider",
+        config = function()
+            local spider = require("spider")
+            spider.setup({})
+            vim.keymap.set({ "n", "o", "x" }, "w", function() spider.motion("w") end)
+            vim.keymap.set({ "n", "o", "x" }, "e", function() spider.motion("e") end)
+            vim.keymap.set({ "n", "o", "x" }, "b", function() spider.motion("b") end)
+        end
+    },
 }

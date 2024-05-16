@@ -70,6 +70,8 @@ vim.keymap.set("n", "<leader>gr", function() require("gitsigns").reset_hunk() en
 
 vim.keymap.set("n", "<leader>hr", function() require("rest-nvim").run() end)
 
+vim.keymap.set("n", "<m-f>", "<cmd>Oil<cr>")
+
 vim.keymap.set("n", "gl", function()
     local f = vim.fn.expand("<cfile>")
     if #f ~= 0 then

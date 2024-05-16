@@ -6,7 +6,6 @@ return {
         config = function()
             local telescope = require("telescope")
             local actions = require("telescope.actions")
-            local fb_actions = telescope.extensions.file_browser.actions
             telescope.setup({
                 defaults = {
                     layout_config = {
@@ -30,22 +29,7 @@ return {
                         }
                     }
                 },
-                extensions = {
-                    file_browser = {
-                        hijack_netrw = true,
-                        mappings = {
-                            ["i"] = {
-                                ["<Left>"] = fb_actions.goto_parent_dir,
-                            },
-                            ["n"] = {
-                                ["<Left>"] = fb_actions.goto_parent_dir,
-                            },
-                        },
-                    },
-                },
             })
-            telescope.load_extension("file_browser")
-            vim.keymap.set("n", "<m-f>", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
             telescope.load_extension("aerial")
             vim.keymap.set("n", "<leader>f", ":Telescope aerial<CR>", { noremap = true })
@@ -65,12 +49,6 @@ return {
             vim.keymap.set("n", "<m-d>", function() builtin.diagnostics({ severity_bound = 0, bufnr = 0 }) end, {})
             vim.keymap.set("n", "<m-D>", function() builtin.diagnostics({ severity_bound = 0 }) end, {})
         end
-    },
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        lazy = true
     },
     {
         "folke/todo-comments.nvim",

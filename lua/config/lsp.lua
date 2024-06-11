@@ -67,84 +67,77 @@ local on_attach = function(args)
     })
 end
 
-require('mason').setup({
-    ui = {
-        keymaps = {
-            toggle_package_expand = "<CR>",
-            install_package = "I",
-            update_package = "u",
-            check_package_version = "c",
-            update_all_packages = "U",
-            check_outdated_packages = "C",
-            uninstall_package = "X",
-            cancel_installation = "<C-c>",
-            apply_language_filter = "<C-f>",
-        },
-    }
-})
-require('mason-lspconfig').setup()
-
+local angularls_cmd = {
+    "ngserver", "--stdio", "--tsProbeLocations", "/usr/lib/node_modules", "--ngProbeLocations", "/usr/lib/node_modules"
+}
 local servers = {
     jsonls = {},
-    angularls = {},
+    lua_ls = {},
+    angularls = {
+        cmd = angularls_cmd,
+        on_new_config = function(new_config)
+            new_config.cmd = angularls_cmd
+        end,
+    },
     tsserver = {},
     rust_analyzer = {
-        ["rust-analyzer"] = {
-            assist = {
-                importEnforceGranularity = true,
-                importPrefix = "crate",
-            },
-            checkOnSave = {
-                command = "clippy",
-            },
-            diagnostics = {
-                enable = true,
-                experimental = {
-                    enable = true,
+        settings = {
+            ["rust-analyzer"] = {
+                assist = {
+                    importEnforceGranularity = true,
+                    importPrefix = "crate",
                 },
-            },
-            completion = {
-                callable = {
-                    snippets = "none"
+                checkOnSave = {
+                    command = "clippy",
+                },
+                diagnostics = {
+                    enable = true,
+                    experimental = {
+                        enable = true,
+                    },
+                },
+                completion = {
+                    callable = {
+                        snippets = "none"
+                    }
                 }
-            }
-        },
+            },
+        }
     },
     purescriptls = {
-        purescript = {
-            formatter = "purs-tidy",
-        },
+        settings = {
+            purescript = {
+                formatter = "purs-tidy",
+            },
+        }
     },
     biome = {
         -- enabled = false,
         cmd = { var.dev_path .. "/clone/biome/target/release/biome", "lsp-proxy" }
     },
     typos_lsp = {
-        init_options = {
-            diagnosticSeverity = "warning"
+        -- enabled = false,
+        settings = {
+            init_options = {
+                diagnosticSeverity = "warning"
+            }
         }
-    }
+    },
+    hls = {}
 }
 
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local mason_lspconfig = require('mason-lspconfig')
-mason_lspconfig.setup({
-    ensure_installed = vim.tbl_keys(servers),
-})
-mason_lspconfig.setup_handlers({
-    function(server_name)
-        local server = servers[server_name] or {}
-        if (server.enabled == false) then
-            return
-        end
-        require('lspconfig')[server_name].setup({
+for name, server in pairs(servers) do
+    if (server.enabled ~= false) then
+        lspconfig[name].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = server,
+            settings = server.settings,
             filetypes = server.filetypes,
             cmd = server.cmd,
             init_options = server.init_options,
+            on_new_config = server.on_new_config,
         })
-    end,
-})
+    end
+end

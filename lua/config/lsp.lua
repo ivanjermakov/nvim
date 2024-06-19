@@ -123,7 +123,9 @@ local servers = {
             }
         }
     },
-    hls = {}
+    hls = {},
+    gleam = {},
+    cssls = {},
 }
 
 local lspconfig = require('lspconfig')

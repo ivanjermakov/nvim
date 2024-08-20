@@ -80,4 +80,20 @@ return {
             vim.keymap.set({ "n", "o", "x" }, "b", function() spider.motion("b") end)
         end
     },
+    {
+        "okuuva/auto-save.nvim",
+        opts = {
+            execution_message = { enabled = false },
+            debounce_delay = 100,
+            condition = function(buf)
+                local fn = vim.fn
+                local utils = require("auto-save.utils.data")
+
+                if utils.not_in(fn.getbufvar(buf, "&filetype"), { 'oil' }) then
+                    return true
+                end
+                return false
+            end
+        }
+    }
 }

@@ -22,7 +22,7 @@ local on_attach = function(args)
     end
 
     -- handled by biome
-    if client.name == "tsserver" or client.name == "html" or client.name == "cssls" then
+    if client.name == "ts_ls" or client.name == "html" or client.name == "cssls" then
         client.server_capabilities.documentFormattingProvider = false
     end
 
@@ -79,7 +79,7 @@ local servers = {
             new_config.cmd = angularls_cmd
         end,
     },
-    tsserver = {},
+    ts_ls = {},
     rust_analyzer = {
         settings = {
             ["rust-analyzer"] = {

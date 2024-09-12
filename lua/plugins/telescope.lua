@@ -35,11 +35,7 @@ return {
             vim.keymap.set("n", "<leader>f", ":Telescope aerial<CR>", { noremap = true })
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set(
-                "n",
-                "<m-n>",
-                [[<cmd>lua require"telescope.builtin".find_files({ find_command = {"rg", "--no-ignore","--files", "--hidden", "-g", "!.git", "-g", "!node_modules" }})<cr>]]
-            )
+            vim.keymap.set("n", "<m-n>", function() builtin.find_files({ hidden = true, no_ignore = true }) end, {})
             vim.keymap.set("n", "<c-n>", builtin.find_files, {})
             vim.keymap.set("n", "<c-f>", builtin.live_grep, {})
             vim.keymap.set("n", "<c-e>", function() builtin.buffers({ sort_mru = true }) end, {})

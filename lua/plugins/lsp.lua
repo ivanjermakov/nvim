@@ -20,7 +20,7 @@ return {
                     completeopt = 'menu,menuone,noinsert',
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<cr>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+                    ["<cr>"] = cmp.mapping.confirm({ select = true }),
                     ["<m-cr>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
                 }),
                 snippet = {

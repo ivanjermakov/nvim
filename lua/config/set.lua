@@ -47,7 +47,7 @@ vim.opt.mouse = ""
 
 vim.opt.cursorline = true
 
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 
 vim.opt.sessionoptions = "buffers,curdir,terminal"
 

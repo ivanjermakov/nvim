@@ -16,8 +16,8 @@ local on_attach = function(args)
     local opts = { buffer = args.buf }
     local client = vim.lsp.get_client_by_id(args.id)
 
-    -- disable semantic tokens since they mess up theme highting
-    if client.server_capabilities ~= nil then
+    -- disable semantic tokens since they mess up theme highlighting
+    if client.server_capabilities ~= nil and client.server_capabilities.semanticTokensProvider ~= nil then
         client.server_capabilities.semanticTokensProvider = nil
     end
 
@@ -126,6 +126,7 @@ local servers = {
     hls = {},
     gleam = {},
     cssls = {},
+    glsl_analyzer = {},
 }
 
 local lspconfig = require('lspconfig')

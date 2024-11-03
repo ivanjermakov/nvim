@@ -6,13 +6,12 @@ return {
         end
     },
     {
-        'echasnovski/mini.comment',
-        version = '*',
+        "echasnovski/mini.comment",
         config = function()
             require("mini.comment").setup({
                 mappings = {
-                    comment_line = '<c-_>',
-                    comment_visual = '<c-_>',
+                    comment_line = "<c-/>",
+                    comment_visual = "<c-/>",
                 }
             })
         end
@@ -25,12 +24,11 @@ return {
     },
     {
         "NvChad/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end
+        opts = {}
     },
     {
         "lukas-reineke/indent-blankline.nvim",
+        enabled = false, -- bad perf on big files
         main = "ibl",
         opts = {
             indent = {
@@ -43,7 +41,18 @@ return {
         }
     },
     {
+        "ecthelionvi/NeoColumn.nvim",
+        opts = {
+            excluded_ft = { "" },
+            fg_color = vim.fn.synIDattr(vim.fn.hlID("ColorColumn"), "fg#"),
+            bg_color = vim.fn.synIDattr(vim.fn.hlID("ColorColumn"), "bg#"),
+            always_on = true,
+            NeoColumn = "120"
+        }
+    },
+    {
         "lukas-reineke/virt-column.nvim",
+        enabled = false, -- NeoColumn.nvim is more performant
         opts = {
             char = "│"
         }
@@ -51,10 +60,10 @@ return {
     {
         "Wansmer/sibling-swap.nvim",
         config = function()
-            require('sibling-swap').setup({
+            require("sibling-swap").setup({
                 keymaps = {
-                    ['<m-.>'] = 'swap_with_right',
-                    ['<m-,>'] = 'swap_with_left',
+                    ["<m-.>"] = "swap_with_right",
+                    ["<m-,>"] = "swap_with_left",
                 },
             })
         end
@@ -65,7 +74,7 @@ return {
             local leap = require("leap")
             leap.opts.safe_labels = "sfnut"
             leap.opts.labels = "sfnjklhodweimbuyvrgtaqpcxz"
-            vim.keymap.set({ 'n', 'x', 'o' }, 'm', function() leap.leap({ target_windows = { vim.fn.win_getid() } }) end)
+            vim.keymap.set({ "n", "x", "o" }, "m", function() leap.leap({ target_windows = { vim.fn.win_getid() } }) end)
         end
     },
     {
@@ -83,17 +92,16 @@ return {
     {
         "okuuva/auto-save.nvim",
         opts = {
-            execution_message = { enabled = false },
             debounce_delay = 100,
             condition = function(buf)
                 local fn = vim.fn
                 local utils = require("auto-save.utils.data")
 
-                if utils.not_in(fn.getbufvar(buf, "&filetype"), { 'oil' }) then
+                if utils.not_in(fn.getbufvar(buf, "&filetype"), { "oil" }) then
                     return true
                 end
                 return false
             end
         }
-    }
+    },
 }

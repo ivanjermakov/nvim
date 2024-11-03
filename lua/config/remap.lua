@@ -77,7 +77,6 @@ vim.keymap.set("n", "gl", function()
     if #f ~= 0 then
         local cursor = vim.api.nvim_win_get_cursor(0)
         local bufnr = vim.api.nvim_get_current_buf()
-        require("toggleterm").toggle(0)
         vim.api.nvim_win_set_buf(0, bufnr)
         vim.api.nvim_win_set_cursor(0, cursor)
         vim.cmd("norm! gF")

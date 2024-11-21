@@ -89,6 +89,7 @@ local servers = {
                 },
                 checkOnSave = {
                     command = "clippy",
+                    extraArgs = { "--target-dir", "target/check" }
                 },
                 diagnostics = {
                     enable = true,
@@ -124,7 +125,9 @@ local servers = {
         }
     },
     hls = {},
-    gleam = {},
+    gleam = {
+        cmd = { var.dev_path .. "/clone/gleam/target/release/gleam", "lsp" }
+    },
     cssls = {},
     glsl_analyzer = {},
 }

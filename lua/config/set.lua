@@ -63,3 +63,5 @@ vim.g.editorconfig = false
 vim.diagnostic.config({
     virtual_text = false,
 })
+
+vim.opt.concealcursor = "n"

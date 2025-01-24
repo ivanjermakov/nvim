@@ -49,31 +49,6 @@ return {
         config = true,
     },
     {
-        "rest-nvim/rest.nvim",
-        dependencies = { "luarocks.nvim" },
-        ft = "http",
-        config = function()
-            require("rest-nvim").setup({
-                result = {
-                    split = {
-                        stay_in_current_window_after_split = true
-                    },
-                    behavior = {
-                        show_info = {
-                            url = true
-                        },
-                        formatters = {
-                            json = "jq",
-                            html = function(body)
-                                return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-                            end
-                        }
-                    }
-                },
-            })
-        end
-    },
-    {
         "ivanjermakov/plant.nvim",
         config = function()
             require("plant").setup({

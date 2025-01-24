@@ -1,7 +1,7 @@
 return {
     {
         "ivanjermakov/cmdzero.nvim",
-        enabled = true,
+        -- enabled = false,
         dev = true,
         dependencies = { "MunifTanjim/nui.nvim" },
         opts = {}

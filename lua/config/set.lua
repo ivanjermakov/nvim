@@ -65,3 +65,9 @@ vim.diagnostic.config({
 })
 
 vim.opt.concealcursor = "n"
+
+vim.filetype.add({
+    extension = {
+        bqn = "bqn",
+    },
+})

@@ -17,9 +17,9 @@ local on_attach = function(args)
     local client = vim.lsp.get_client_by_id(args.id)
 
     -- disable semantic tokens since they mess up theme highlighting
-    if client.server_capabilities ~= nil and client.server_capabilities.semanticTokensProvider ~= nil then
-        client.server_capabilities.semanticTokensProvider = nil
-    end
+    -- if client.server_capabilities ~= nil and client.server_capabilities.semanticTokensProvider ~= nil then
+    --     client.server_capabilities.semanticTokensProvider = nil
+    -- end
 
     -- handled by biome
     if client.name == "ts_ls" or client.name == "html" or client.name == "cssls" then
@@ -113,15 +113,11 @@ local servers = {
         }
     },
     biome = {
-        -- enabled = false,
         cmd = { var.dev_path .. "/clone/biome/target/release/biome", "lsp-proxy" }
     },
     typos_lsp = {
-        -- enabled = false,
-        settings = {
-            init_options = {
-                diagnosticSeverity = "warning"
-            }
+        init_options = {
+            diagnosticSeverity = "Hint"
         }
     },
     hls = {},
@@ -130,10 +126,12 @@ local servers = {
     },
     cssls = {},
     glsl_analyzer = {},
+    clojure_lsp = {},
 }
 
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.semanticTokens = nil
 for name, server in pairs(servers) do
     if (server.enabled ~= false) then
         lspconfig[name].setup({

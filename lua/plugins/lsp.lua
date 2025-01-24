@@ -44,6 +44,16 @@ return {
             null_ls.setup({
                 sources = {
                     null_ls.builtins.formatting.biome.with({
+                        filetypes = {
+                            "javascript",
+                            "typescript",
+                            "javascriptreact",
+                            "typescriptreact",
+                            "json",
+                            "jsonc",
+                            "css",
+                            "graphql",
+                        },
                         args = {
                             'check',
                             '--apply',
@@ -53,7 +63,7 @@ return {
                             '--skip-errors',
                             '--stdin-file-path=$FILENAME',
                         },
-                    }),
+                    })
                 }
             })
         end

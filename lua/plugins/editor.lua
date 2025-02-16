@@ -104,4 +104,8 @@ return {
             end
         }
     },
+    {
+        'Chaitanyabsprip/fastaction.nvim',
+        opts = {},
+    }
 }

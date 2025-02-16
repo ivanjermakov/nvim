@@ -63,7 +63,7 @@ return {
                             '--skip-errors',
                             '--stdin-file-path=$FILENAME',
                         },
-                    })
+                    }),
                 }
             })
         end

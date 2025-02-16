@@ -1,4 +1,5 @@
 local var = require("config.var")
+local fastaction = require("fastaction")
 
 local function get_highest_severity(bufnr)
     local diags = vim.diagnostic.get(bufnr)
@@ -45,7 +46,7 @@ local on_attach = function(args)
         function() vim.diagnostic.goto_next() end,
         opts
     ) -- <c-f1>
-    vim.keymap.set("n", "<m-cr>", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<m-cr>", function() fastaction.code_action() end, opts)
     vim.keymap.set("n", "<f6>", vim.lsp.buf.rename, opts)
 
     -- enable selected reference highlighting across the buffer
@@ -127,6 +128,7 @@ local servers = {
     cssls = {},
     glsl_analyzer = {},
     clojure_lsp = {},
+    zls = {},
 }
 
 local lspconfig = require('lspconfig')

@@ -27,7 +27,9 @@ return {
                             ["<m-up>"] = actions.cycle_history_prev,
                             ["<m-down>"] = actions.cycle_history_next,
                         }
-                    }
+                    },
+                    -- border = false,
+                    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
                 },
             })
 
@@ -73,7 +75,6 @@ return {
             vim.keymap.set({ "n", "i" }, "<m-6>", ":TodoTelescope<cr>")
         end
     },
-    { "nvim-telescope/telescope-ui-select.nvim" },
     {
         'stevearc/aerial.nvim',
         dependencies = { "nvim-treesitter/nvim-treesitter" },

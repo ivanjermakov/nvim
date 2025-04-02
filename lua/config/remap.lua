@@ -27,8 +27,8 @@ vim.keymap.set("i", "<c-c>", "<Esc>")
 
 vim.keymap.set("n", "<tab>", function() last_buf() end)
 
-vim.keymap.set("i", "<c-h>", "<esc>dbxi")
-vim.keymap.set("i", "<c-del>", "<c-o>de")
+vim.keymap.set("i", "<c-bs>", "<c-w>")
+vim.keymap.set("", "<c-del>", "<c-o>de")
 
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("v", "Q", ":norm @q<cr>")

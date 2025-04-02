@@ -97,7 +97,7 @@ return {
                 local fn = vim.fn
                 local utils = require("auto-save.utils.data")
 
-                if utils.not_in(fn.getbufvar(buf, "&filetype"), { "oil" }) then
+                if utils.not_in(fn.getbufvar(buf, "&filetype"), { "oil", "query" }) then
                     return true
                 end
                 return false

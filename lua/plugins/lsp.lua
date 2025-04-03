@@ -38,7 +38,6 @@ return {
     },
     {
         "nvimtools/none-ls.nvim",
-        commit = "cfa65d86e21eeb60544d5e823f6db43941322a53",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             local null_ls = require("null-ls")

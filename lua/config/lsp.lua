@@ -114,7 +114,7 @@ local servers = {
         }
     },
     biome = {
-        cmd = { var.dev_path .. "/clone/biome/target/release/biome", "lsp-proxy" }
+        cmd = { "biome", "lsp-proxy" }
     },
     typos_lsp = {
         init_options = {
@@ -132,7 +132,7 @@ local servers = {
 }
 
 local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 capabilities.textDocument.semanticTokens = nil
 for name, server in pairs(servers) do
     if (server.enabled ~= false) then

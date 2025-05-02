@@ -1,44 +1,28 @@
 return {
     { "neovim/nvim-lspconfig", },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-nvim-lua" },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "L3MON4D3/LuaSnip" },
-    { "rafamadriz/friendly-snippets" },
     {
-        "hrsh7th/nvim-cmp",
-        config = function()
-            local cmp = require('cmp')
-            local luasnip = require('luasnip')
-            require('luasnip.loaders.from_vscode').lazy_load({ exclude = { "all" } })
-            luasnip.config.setup({})
-
-            cmp.setup {
-                completion = {
-                    completeopt = 'menu,menuone,noinsert',
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ["<cr>"] = cmp.mapping.confirm({ select = true }),
-                    ["<m-cr>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
-                }),
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
-                sources = {
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'path' },
-                },
-            }
-        end
+        "saghen/blink.cmp",
+        event = 'VimEnter',
+        version = '1.*',
+        opts = {
+            keymap = {
+                preset = 'none',
+                ['<up>'] = { 'select_prev', 'fallback' },
+                ['<down>'] = { 'select_next', 'fallback' },
+                ['<cr>'] = { 'accept', 'fallback' },
+            },
+            appearance = {
+                nerd_font_variant = 'mono',
+            },
+            sources = {
+                default = { 'lsp', 'path', 'snippets' },
+            },
+            signature = { enabled = true },
+        }
     },
     {
         "nvimtools/none-ls.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim", },
         config = function()
             local null_ls = require("null-ls")
             null_ls.setup({

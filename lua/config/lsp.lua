@@ -131,9 +131,10 @@ local servers = {
     zls = {},
 }
 
-local lspconfig = require('lspconfig')
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local lspconfig = require("lspconfig")
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 capabilities.textDocument.semanticTokens = nil
+capabilities.textDocument.completion = { completionItem = { snippetSupport = false } }
 for name, server in pairs(servers) do
     if (server.enabled ~= false) then
         lspconfig[name].setup({

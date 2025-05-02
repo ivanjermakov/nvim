@@ -105,7 +105,7 @@ return {
         }
     },
     {
-        'Chaitanyabsprip/fastaction.nvim',
+        "Chaitanyabsprip/fastaction.nvim",
         opts = {},
     }
 }

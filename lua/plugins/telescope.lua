@@ -76,7 +76,7 @@ return {
         end
     },
     {
-        'stevearc/aerial.nvim',
+        "stevearc/aerial.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         opts = {},
     }

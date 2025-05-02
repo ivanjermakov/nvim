@@ -21,6 +21,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
     pattern = { "*" },
     callback = function()
-        vim.cmd('clearjumps')
+        vim.cmd("clearjumps")
     end
 })

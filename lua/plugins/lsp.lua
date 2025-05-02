@@ -2,20 +2,17 @@ return {
     { "neovim/nvim-lspconfig" },
     {
         "saghen/blink.cmp",
-        event = 'VimEnter',
-        version = '1.*',
+        event = "VimEnter",
+        version = "1.*",
         opts = {
             keymap = {
-                preset = 'none',
-                ['<up>'] = { 'select_prev', 'fallback' },
-                ['<down>'] = { 'select_next', 'fallback' },
-                ['<cr>'] = { 'accept', 'fallback' },
-            },
-            appearance = {
-                nerd_font_variant = 'mono',
+                preset = "none",
+                ["<up>"] = { "select_prev", "fallback" },
+                ["<down>"] = { "select_next", "fallback" },
+                ["<cr>"] = { "accept", "fallback" },
             },
             sources = {
-                default = { 'lsp', 'path', 'snippets' },
+                default = { "lsp", "path", "buffer" },
             },
             signature = { enabled = true },
         }
@@ -39,13 +36,13 @@ return {
                             "graphql",
                         },
                         args = {
-                            'check',
-                            '--apply',
-                            '--linter-enabled=true',
-                            '--formatter-enabled=true',
-                            '--organize-imports-enabled=true',
-                            '--skip-errors',
-                            '--stdin-file-path=$FILENAME',
+                            "check",
+                            "--apply",
+                            "--linter-enabled=true",
+                            "--formatter-enabled=true",
+                            "--organize-imports-enabled=true",
+                            "--skip-errors",
+                            "--stdin-file-path=$FILENAME",
                         },
                     }),
                 }

@@ -131,13 +131,13 @@ local servers = {
     zls = {},
 }
 
-local lspconfig = require("lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 capabilities.textDocument.semanticTokens = nil
-capabilities.textDocument.completion = { completionItem = { snippetSupport = false } }
+capabilities.textDocument.completion.completionItem.snippetSupport = false
 for name, server in pairs(servers) do
     if (server.enabled ~= false) then
-        lspconfig[name].setup({
+        vim.lsp.enable(name)
+        vim.lsp.config(name, {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = server.settings,

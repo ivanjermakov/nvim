@@ -1,25 +1,32 @@
 return {
-    { "neovim/nvim-lspconfig" },
+    { "neovim/nvim-lspconfig", },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/cmp-nvim-lua" },
+    { "hrsh7th/cmp-buffer" },
+    { "hrsh7th/cmp-path" },
     {
-        "saghen/blink.cmp",
-        event = "VimEnter",
-        version = "1.*",
-        opts = {
-            keymap = {
-                preset = "none",
-                ["<up>"] = { "select_prev", "fallback" },
-                ["<down>"] = { "select_next", "fallback" },
-                ["<cr>"] = { "accept", "fallback" },
-            },
-            sources = {
-                default = { "lsp", "path", "buffer" },
-            },
-            signature = { enabled = true },
-        }
+        "hrsh7th/nvim-cmp",
+        config = function()
+            local cmp = require('cmp')
+
+            cmp.setup {
+                completion = {
+                    completeopt = 'menu,menuone,noinsert',
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ["<cr>"] = cmp.mapping.confirm({ select = true }),
+                    ["<m-cr>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
+                }),
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = 'path' },
+                },
+            }
+        end
     },
     {
         "nvimtools/none-ls.nvim",
-        dependencies = { "nvim-lua/plenary.nvim", "nvimtools/none-ls-extras.nvim", },
+        dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             local null_ls = require("null-ls")
             null_ls.setup({

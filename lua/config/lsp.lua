@@ -33,19 +33,19 @@ local on_attach = function(args)
     end, opts)
     vim.keymap.set(
         "n", "<f2>",
-        function() vim.diagnostic.jump({ count = 1, severity = get_highest_severity(0) }) end,
+        function() vim.diagnostic.jump({ count = 1, float = true, severity = get_highest_severity(0) }) end,
         opts
     )
     -- <s-f2>
     vim.keymap.set(
         "n", "<f14>",
-        function() vim.diagnostic.jump({ count = -1, severity = get_highest_severity(0) }) end,
+        function() vim.diagnostic.jump({ count = -1, float = true, severity = get_highest_severity(0) }) end,
         opts
     )
     -- <c-f1>
     vim.keymap.set(
         "n", "<f25>",
-        function() vim.diagnostic.jump({ count = 1 }) end,
+        function() vim.diagnostic.jump({ count = 1, float = true }) end,
         opts
     )
     vim.keymap.set("n", "<m-cr>", function() fastaction.code_action() end, opts)

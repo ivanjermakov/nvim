@@ -130,7 +130,15 @@ local servers = {
     cssls = {},
     glsl_analyzer = {},
     clojure_lsp = {},
-    zls = {},
+    zls = {
+        settings = {
+            enable_build_on_save = true,
+            build_on_save_step = "check",
+            enable_snippets = false,
+            enable_argument_placeholders = false,
+            warn_style = true,
+        }
+    },
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()

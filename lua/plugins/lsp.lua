@@ -12,7 +12,7 @@ return {
                 ["<cr>"] = { "accept", "fallback" },
             },
             sources = {
-                default = { "lsp", "path", "buffer" },
+                default = { "lsp", "path" },
             },
             menu = { auto_show = true },
             completion = {

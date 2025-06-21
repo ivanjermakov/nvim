@@ -14,7 +14,6 @@ return {
             sources = {
                 default = { "lsp", "path" },
             },
-            menu = { auto_show = true },
             completion = {
                 documentation = {
                     auto_show = true,

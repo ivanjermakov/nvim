@@ -108,13 +108,6 @@ local servers = {
             },
         }
     },
-    purescriptls = {
-        settings = {
-            purescript = {
-                formatter = "purs-tidy",
-            },
-        }
-    },
     biome = {
         cmd = { "biome", "lsp-proxy" }
     },
@@ -124,12 +117,8 @@ local servers = {
         }
     },
     hls = {},
-    gleam = {
-        cmd = { var.dev_path .. "/clone/gleam/target/release/gleam", "lsp" }
-    },
+    gleam = {},
     cssls = {},
-    glsl_analyzer = {},
-    clojure_lsp = {},
     zls = {
         settings = {
             enable_build_on_save = true,

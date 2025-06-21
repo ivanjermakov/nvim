@@ -133,6 +133,8 @@ local servers = {
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 capabilities.textDocument.semanticTokens = nil
 capabilities.textDocument.completion.completionItem.snippetSupport = false
+-- completionItem.labelDetails act as snippets inserting crap at cmp accept
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = false
 for name, server in pairs(servers) do
     if (server.enabled ~= false) then
         vim.lsp.enable(name)

@@ -75,7 +75,15 @@ local angularls_cmd = {
 }
 local servers = {
     jsonls = {},
-    lua_ls = {},
+    lua_ls = {
+        settings = {
+            Lua = {
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true)
+                }
+            }
+        }
+    },
     angularls = {
         cmd = angularls_cmd,
         on_new_config = function(new_config)

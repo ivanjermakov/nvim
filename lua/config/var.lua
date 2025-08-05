@@ -1,1 +1,1 @@
-return { dev_path = "/D/project" }
+return { dev_path = "." }

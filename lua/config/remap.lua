@@ -1,12 +1,16 @@
 vim.g.mapleader = " "
 vim.keymap.set({ "n", "v" }, "<space>", "<nop>")
 
-vim.keymap.set({ "n", "v" }, "h", "i")
-vim.keymap.set({ "n", "v" }, "i", "h")
-vim.keymap.set({ "n", "v" }, "i", "gk")
-vim.keymap.set({ "n", "v" }, "j", "h")
-vim.keymap.set({ "n", "v" }, "k", "gj")
-vim.keymap.set({ "n", "v" }, "a", "a")
+-- presence of v_i* mappings introduces delay to remapped v_i
+for _, map in pairs(vim.api.nvim_get_keymap("v")) do
+    if map.lhs:match('^i') then
+        vim.api.nvim_del_keymap("v", map.lhs)
+    end
+end
+vim.keymap.set({ "n", "v" }, "h", "i", { noremap = true })
+vim.keymap.set({ "n", "v" }, "i", "gk", { noremap = true })
+vim.keymap.set({ "n", "v" }, "j", "h", { noremap = true })
+vim.keymap.set({ "n", "v" }, "k", "j", { noremap = true })
 
 vim.keymap.set({ "n", "v" }, "I", "<c-u>zz")
 vim.keymap.set({ "n", "v" }, "K", "<c-d>zz")

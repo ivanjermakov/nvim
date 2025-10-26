@@ -94,13 +94,13 @@ return {
         opts = {
             debounce_delay = 100,
             condition = function(buf)
-                local fn = vim.fn
-                local utils = require("auto-save.utils.data")
-
-                if utils.not_in(fn.getbufvar(buf, "&filetype"), { "oil", "query" }) then
-                    return true
+                if vim.tbl_contains({ "oil", "query" }, vim.fn.getbufvar(buf, "&filetype")) then
+                    return false
                 end
-                return false
+                if vim.loop.fs_stat('.git') == nil then
+                    return false
+                end
+                return true
             end
         }
     },

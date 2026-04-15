@@ -136,6 +136,24 @@ local servers = {
             warn_style = true,
         }
     },
+    ccls = {
+        capabilities = vim.tbl_deep_extend(
+            "force",
+            require("blink.cmp").get_lsp_capabilities(),
+            {
+                textDocument = {
+                    completion = {
+                        completionItem = {
+                            snippetSupport = false,
+                        },
+                    },
+                },
+            }
+        ),
+        init_options = {
+            compilationDatabaseDirectory = "build",
+        },
+    }
 }
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()

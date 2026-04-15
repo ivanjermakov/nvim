@@ -69,7 +69,7 @@ return {
         end
     },
     {
-        "ggandor/leap.nvim",
+        url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
             local leap = require("leap")
             leap.opts.safe_labels = "sfnut"
@@ -97,7 +97,7 @@ return {
                 if vim.tbl_contains({ "oil", "query" }, vim.fn.getbufvar(buf, "&filetype")) then
                     return false
                 end
-                if vim.loop.fs_stat('.git') == nil then
+                if vim.fn.finddir('.git', vim.fn.getcwd() .. ";") == "" then
                     return false
                 end
                 return true

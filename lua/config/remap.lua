@@ -38,6 +38,7 @@ vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("v", "Q", ":norm @q<cr>")
 
 vim.keymap.set("n", "<c-r>", ":%s//g<left><left>")
+vim.keymap.set("n", "<leader>t", ":%s/[ ]\\+$//g<cr>")
 
 vim.keymap.set("n", "<leader>w", ":w<cr>")
 vim.keymap.set("n", "<leader>q", ":q<cr>")

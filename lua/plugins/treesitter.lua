@@ -1,12 +1,12 @@
-local var = require("config.var")
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup({
+            require("nvim-treesitter").setup({
                 ensure_installed = {},
+                auto_install = false,
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false,
@@ -28,30 +28,10 @@ return {
                     },
                 },
             })
-            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-            parser_config.typescript = {
-                install_info = {
-                    url = var.dev_path .. "/clone/tree-sitter-typescript/typescript",
-                    files = { "src/parser.c", "src/scanner.c" },
-                },
-            }
-            parser_config.nois = {
-                install_info = {
-                    url = var.dev_path .. "/nois-lang/tree-sitter-nois",
-                    files = { "src/parser.c" },
-                },
-            }
-            parser_config.bqn = {
-                install_info = {
-                    url = var.dev_path .. "/clone/tree-sitter-bqn",
-                    files = { "src/parser.c" },
-                    filetype = "bqn",
-                },
-            }
         end
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        dependencies = { "nvim-treesitter/nvim-treesitter" }
+        branch = "main",
     },
 }

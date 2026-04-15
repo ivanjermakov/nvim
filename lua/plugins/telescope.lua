@@ -8,6 +8,10 @@ return {
             local actions = require("telescope.actions")
             telescope.setup({
                 defaults = {
+                    preview = {
+                        -- https://github.com/nvim-telescope/telescope.nvim/issues/3487#issuecomment-3047102892
+                        treesitter = false,
+                    },
                     layout_config = {
                         height = { padding = 0 },
                         width = { padding = 0 },

@@ -55,9 +55,6 @@ return {
                 create = function(key)
                     vim.cmd.terminal()
                     vim.o.buflisted = false
-                    if key == 1 then
-                        vim.api.nvim_chan_send(vim.bo.channel, "llmcli\r")
-                    end
                     if key == 2 then
                         vim.api.nvim_chan_send(vim.bo.channel, "lg\r")
                     end

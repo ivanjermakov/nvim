@@ -2,6 +2,26 @@ vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 
 local on_attach = function(args)
     local opts = { buffer = args.buf }
+    local client = vim.lsp.get_client_by_id(args.id)
+    if client == nil then return end
+
+    -- enable selected reference highlighting across the buffer
+    vim.api.nvim_create_autocmd("CursorHold", {
+        pattern = { "<buffer>" },
+        callback = function()
+            if client.server_capabilities.documentHighlightProvider then
+                vim.lsp.buf.document_highlight()
+            end
+        end
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+        pattern = { "<buffer>" },
+        callback = function()
+            if client.server_capabilities.documentHighlightProvider then
+                vim.lsp.buf.clear_references()
+            end
+        end
+    })
 
     vim.keymap.set("n", "<leader>l", function() vim.lsp.buf.format({ timeout_ms = 10 * 1000 }) end)
     vim.keymap.set("n", "<c-q>", function()

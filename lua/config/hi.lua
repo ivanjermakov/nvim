@@ -1,7 +1,8 @@
 vim.cmd "colorscheme lunaperche"
 
-for _, hi in pairs({ "Normal", "NormalFloat", "FloatBorder", "Special", "Identifier", "Type" }) do
-    vim.api.nvim_set_hl(0, hi, { bg = "none" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#ffffff" })
+for _, hi in pairs({ "NormalFloat", "FloatBorder", "Special", "Identifier", "Type" }) do
+    vim.api.nvim_set_hl(0, hi, { link = "Normal" })
 end
 
 vim.api.nvim_set_hl(0, "PreProc", { link = "Normal" })
@@ -13,7 +14,6 @@ vim.api.nvim_set_hl(0, "Comment", { fg = "#9998a8" })
 vim.api.nvim_set_hl(0, "@keyword", { fg = "#d3a8ef" })
 vim.api.nvim_set_hl(0, "@keyword.import", { link = "@keyword" })
 vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@keyword" })
--- vim.api.nvim_set_hl(0, "@constant", { fg = "#d3a8ef" })
 vim.api.nvim_set_hl(0, "@constant.builtin", { link = "@constant" })
 
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff8e8f" })

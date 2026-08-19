@@ -1,7 +1,7 @@
 vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" } })
 local treesitter = require("nvim-treesitter")
 
-local parsers = { "lua", "markdown", "markdown_inline", "html", "typescript" }
+local parsers = { "lua", "markdown", "markdown_inline", "html", "typescript", "sql" }
 treesitter.install(parsers)
 
 local function attach(buf, language)

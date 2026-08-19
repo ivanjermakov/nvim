@@ -3,7 +3,7 @@ vim.keymap.set({ "n", "v" }, "<space>", "<nop>")
 
 -- presence of v_i* mappings introduces delay to remapped v_i
 for _, map in pairs(vim.api.nvim_get_keymap("v")) do
-    if map.lhs:match('^i') then
+    if map.lhs:match("^i") then
         vim.api.nvim_del_keymap("v", map.lhs)
     end
 end

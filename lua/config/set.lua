@@ -1,7 +1,3 @@
-local var = require("config.var")
-
-vim.api.nvim_command("set runtimepath^=" .. var.dev_path .. "/*")
-
 vim.opt.undofile = true
 
 vim.opt.number = true

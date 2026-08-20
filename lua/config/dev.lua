@@ -13,3 +13,7 @@ plant.setup({
 vim.keymap.set({ "n", "t" }, "<f10>", function() plant.open(1) end)
 vim.keymap.set({ "n", "t" }, "<f11>", function() plant.open(2) end)
 vim.keymap.set({ "n", "t" }, "<f12>", function() plant.open(3) end)
+
+vim.pack.add({ "https://github.com/ivanjermakov/troublesum.nvim" })
+local troublesum = require("troublesum")
+troublesum.setup()

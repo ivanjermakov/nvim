@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "auto-save.nvim": {
+      "rev": "9aabcb8396224dcbf8d51c0c1d620d88a46e89d7",
+      "src": "https://github.com/okuuva/auto-save.nvim"
+    },
     "blink.cmp": {
       "rev": "e116ff9c5c1c2ed6bcdb2e0a6e547099876a8116",
       "src": "https://github.com/saghen/blink.cmp"
@@ -7,6 +11,10 @@
     "blink.lib": {
       "rev": "c8fdc12c8a2fab6cf786dd7141a283f8079f902b",
       "src": "https://github.com/saghen/blink.lib"
+    },
+    "gitsigns.nvim": {
+      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "mini.ai": {
       "rev": "25248c6aa002391936a6200f12d1466015987133",
@@ -48,6 +56,10 @@
     "plant.nvim": {
       "rev": "3ef20626c3f9eadb4155d54f190a4a3fa95131be",
       "src": "https://github.com/ivanjermakov/plant.nvim"
+    },
+    "troublesum.nvim": {
+      "rev": "b00301bb565bfcb6fcfa41f2012e43a0528da65b",
+      "src": "https://github.com/ivanjermakov/troublesum.nvim"
     }
   }
 }

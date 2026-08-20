@@ -1,5 +1,17 @@
 vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 
+local function get_highest_severity(bufnr)
+    local diags = vim.diagnostic.get(bufnr)
+    local highest = vim.diagnostic.severity.HINT
+    for _, diag in ipairs(diags) do
+        local sev = diag.severity
+        if sev ~= nil and sev < highest then
+            highest = sev
+        end
+    end
+    return highest
+end
+
 local on_attach = function(args)
     local opts = { buffer = args.buf }
     local client = vim.lsp.get_client_by_id(args.id)

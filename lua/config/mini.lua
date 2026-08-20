@@ -16,7 +16,19 @@ mini_pick.setup({
 vim.keymap.set({ "n" }, "<c-n>", function() mini_pick.builtin.files() end)
 vim.keymap.set({ "n" }, "<c-e>", function() mini_pick.builtin.buffers() end)
 vim.keymap.set({ "n" }, "<c-f>", function() mini_pick.builtin.grep_live() end)
-vim.keymap.set({ "n" }, "<leader>d", function() mini_extra.pickers.lsp({scope = "definition"}) end)
-vim.keymap.set({ "n" }, "<leader>r", function() mini_extra.pickers.lsp({scope = "references"}) end)
-vim.keymap.set({ "n" }, "<leader>f", function() mini_extra.pickers.lsp({scope = "document_symbol"}) end)
+vim.keymap.set({ "n" }, "<leader>d", function() mini_extra.pickers.lsp({ scope = "definition" }) end)
+vim.keymap.set({ "n" }, "<leader>r", function() mini_extra.pickers.lsp({ scope = "references" }) end)
+vim.keymap.set({ "n" }, "<leader>f", function() mini_extra.pickers.lsp({ scope = "document_symbol" }) end)
 
+vim.pack.add({ "https://github.com/nvim-mini/mini.ai" })
+local mini_ai = require("mini.ai")
+mini_ai.setup()
+
+vim.pack.add({ "https://github.com/nvim-mini/mini.comment" })
+local mini_comment = require("mini.comment")
+mini_comment.setup({
+    mappings = {
+        comment_line = "<c-/>",
+        comment_visual = "<c-/>",
+    }
+})

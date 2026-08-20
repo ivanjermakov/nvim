@@ -19,6 +19,7 @@ vim.api.nvim_set_hl(0, "Comment", { fg = "#9998a8" })
 
 vim.api.nvim_set_hl(0, "@keyword", { fg = "#d3a8ef" })
 vim.api.nvim_set_hl(0, "@keyword.import", { link = "@keyword" })
+vim.api.nvim_set_hl(0, "@keyword.conditional", { link = "@keyword" })
 vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@keyword" })
 vim.api.nvim_set_hl(0, "@constant.builtin", { link = "@constant" })
 

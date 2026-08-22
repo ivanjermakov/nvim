@@ -2,6 +2,7 @@ return {
     { "neovim/nvim-lspconfig" },
     {
         "saghen/blink.cmp",
+        dependencies = { "saghen/blink.lib", },
         event = "VimEnter",
         branch = "main",
         opts = {

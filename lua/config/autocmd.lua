@@ -24,3 +24,26 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
         vim.cmd("clearjumps")
     end
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "markdown" },
+    command = "setlocal conceallevel=0"
+})
+
+vim.api.nvim_create_autocmd(
+    'User',
+    {
+        pattern = "TSUpdate",
+        callback = function()
+            require("nvim-treesitter.parsers").wgsl = {
+                install_info = {
+                    url = "https://github.com/gpuweb/tree-sitter-wgsl",
+                    generate = true,
+                    generate_from_json = false
+                },
+                tier = 0
+            }
+        end
+    }
+)
+vim.treesitter.language.register('wgsl', { 'wgsl' })

@@ -23,7 +23,7 @@ local on_attach = function(args)
     -- end
 
     -- handled by biome
-    if client.name == "ts_ls" or client.name == "html" or client.name == "cssls" then
+    if client.name == "ts_ls" or client.name == "tsgo" or client.name == "html" or client.name == "cssls" then
         client.server_capabilities.documentFormattingProvider = false
     end
 
@@ -70,9 +70,13 @@ local on_attach = function(args)
     })
 end
 
-local angularls_cmd = {
-    "ngserver", "--stdio", "--tsProbeLocations", "/usr/lib/node_modules", "--ngProbeLocations", "/usr/lib/node_modules"
-}
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+capabilities.textDocument.semanticTokens = nil
+capabilities.textDocument.codeAction = { disabledSupport = false }
+-- capabilities.textDocument.completion.completionItem.snippetSupport = false
+-- completionItem.labelDetails act as snippets inserting crap at cmp accept
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = false
+
 local servers = {
     jsonls = {},
     lua_ls = {
@@ -84,13 +88,8 @@ local servers = {
             }
         }
     },
-    angularls = {
-        cmd = angularls_cmd,
-        on_new_config = function(new_config)
-            new_config.cmd = angularls_cmd
-        end,
-    },
     ts_ls = {},
+    -- tsgo = {},
     rust_analyzer = {
         settings = {
             ["rust-analyzer"] = {
@@ -119,18 +118,18 @@ local servers = {
     biome = {
         cmd = { "biome", "lsp-proxy" }
     },
-    typos_lsp = {
-        init_options = {
-            diagnosticSeverity = "Hint"
-        }
-    },
+    -- typos_lsp = {
+    --     init_options = {
+    --         diagnosticSeverity = "Hint"
+    --     }
+    -- },
     hls = {},
     gleam = {},
     cssls = {},
     zls = {
         settings = {
             enable_build_on_save = true,
-            build_on_save_step = "check",
+            build_on_save_args = { "check" },
             enable_snippets = false,
             enable_argument_placeholders = false,
             warn_style = true,
@@ -139,7 +138,7 @@ local servers = {
     ccls = {
         capabilities = vim.tbl_deep_extend(
             "force",
-            require("blink.cmp").get_lsp_capabilities(),
+            capabilities,
             {
                 textDocument = {
                     completion = {
@@ -153,15 +152,10 @@ local servers = {
         init_options = {
             compilationDatabaseDirectory = "build",
         },
-    }
+    },
+    ols = {}
 }
 
-local capabilities = require("blink.cmp").get_lsp_capabilities()
-capabilities.textDocument.semanticTokens = nil
-capabilities.textDocument.codeAction = { disabledSupport = false }
--- capabilities.textDocument.completion.completionItem.snippetSupport = false
--- completionItem.labelDetails act as snippets inserting crap at cmp accept
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = false
 for name, server in pairs(servers) do
     if (server.enabled ~= false) then
         vim.lsp.enable(name)

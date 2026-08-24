@@ -22,6 +22,21 @@ return {
                     },
                 },
             })
+
+            local parsers = require("nvim-treesitter.parsers")
+            parsers.wgsl = {
+                install_info = {
+                    url = "https://github.com/gpuweb/tree-sitter-wgsl",
+                    branch = "main",
+                    files = {
+                        "src/parser.c",
+                        "src/scanner.c",
+                    },
+                    generate_requires_npm = true,
+                    requires_generate_from_grammar = true,
+                },
+                filetype = "wgsl",
+            }
         end
     },
     {

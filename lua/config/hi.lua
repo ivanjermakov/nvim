@@ -1,8 +1,11 @@
 vim.cmd "colorscheme lunaperche"
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#ffffff" })
-for _, hi in pairs({ "NormalFloat", "FloatBorder", "Special", "Identifier", "Type" }) do
+for _, hi in pairs({ "Special", "Identifier", "Type", "WinSeparator", "MiniPickNormal" }) do
     vim.api.nvim_set_hl(0, hi, { link = "Normal" })
+end
+for _, hi in pairs({ "NormalFloat", "FloatBorder" }) do
+    vim.api.nvim_set_hl(0, hi, { bg = "#1b1b1d" })
 end
 
 vim.api.nvim_set_hl(0, "Visual", { bg = "#3e3e43" })

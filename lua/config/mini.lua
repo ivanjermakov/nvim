@@ -32,3 +32,7 @@ mini_comment.setup({
         comment_visual = "<c-/>",
     }
 })
+
+vim.pack.add({ "https://github.com/nvim-mini/mini.surround" })
+local mini_surround = require("mini.surround")
+mini_surround.setup()

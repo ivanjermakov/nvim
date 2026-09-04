@@ -36,6 +36,14 @@
       "rev": "04e73ab07222508361095bb6e27621b315e6b9f1",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
+    "mini.surround": {
+      "rev": "8d5d0c5aa92449368ac251e85451d79d8f69d296",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
+    "no-neck-pain.nvim": {
+      "rev": "0df6659e25401c3f3c40e82f1ddd48714b1a659c",
+      "src": "https://github.com/shortcuts/no-neck-pain.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "a00eb57db2ef4d1ff2d4ef50ead2029cebd09f01",
       "src": "https://github.com/neovim/nvim-lspconfig"

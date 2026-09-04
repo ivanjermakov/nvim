@@ -25,3 +25,19 @@ auto_save.setup({
         return true
     end
 })
+
+vim.pack.add({ "https://github.com/shortcuts/no-neck-pain.nvim" })
+local nnp = require("no-neck-pain")
+nnp.setup({
+    width = 140,
+    autocmds = {
+        enableOnVimEnter = true,
+        enableOnTabEnter = true
+    },
+    buffers = {
+        right = {
+            enabled = false
+        }
+    }
+})
+vim.keymap.set("n", "<leader>n", ":NoNeckPain<cr>")

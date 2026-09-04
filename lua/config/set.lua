@@ -67,3 +67,5 @@ vim.filetype.add({
         bqn = "bqn",
     },
 })
+
+vim.opt.fillchars:append({ vert = " " })

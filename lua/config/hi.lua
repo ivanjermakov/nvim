@@ -30,3 +30,27 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#f0c5a9" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#d3a8ef" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#d3a8ef" })
+
+vim.api.nvim_set_hl(0, "PmenuKind", { link = "@keyword" })
+
+local terminal_palette = {
+    "#51576D",
+    "#E78284",
+    "#A6D189",
+    "#E5C890",
+    "#8CAAEE",
+    "#F4B8E4",
+    "#81C8BE",
+    "#B5BFE2",
+    "#626880",
+    "#E78284",
+    "#A6D189",
+    "#E5C890",
+    "#8CAAEE",
+    "#F4B8E4",
+    "#81C8BE",
+    "#A5ADCE",
+}
+for i, color in ipairs(terminal_palette) do
+    vim.g["terminal_color_" .. (i - 1)] = color
+end

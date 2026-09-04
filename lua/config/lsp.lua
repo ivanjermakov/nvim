@@ -86,3 +86,16 @@ vim.lsp.config("lua_ls", {
     },
 })
 vim.lsp.enable("lua_ls")
+
+vim.lsp.config("zls", {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        enable_build_on_save = true,
+        build_on_save_args = { "-j1", "check" },
+        enable_snippets = false,
+        enable_argument_placeholders = false,
+        warn_style = true,
+    }
+})
+vim.lsp.enable("zls")

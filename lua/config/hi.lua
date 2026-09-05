@@ -31,6 +31,8 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#f0c
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#d3a8ef" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#d3a8ef" })
 
+vim.api.nvim_set_hl(0, "Changed", { fg = "#f0c5a9" })
+
 vim.api.nvim_set_hl(0, "PmenuKind", { link = "@keyword" })
 
 local terminal_palette = {

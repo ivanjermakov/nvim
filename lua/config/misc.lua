@@ -41,3 +41,11 @@ nnp.setup({
     }
 })
 vim.keymap.set("n", "<leader>n", ":NoNeckPain<cr>")
+
+vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
+local oil = require("oil")
+oil.setup({
+    view_options = {
+        show_hidden = true
+    }
+})

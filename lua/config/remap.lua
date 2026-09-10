@@ -90,20 +90,22 @@ end)
 
 local current_listed
 local previous_listed
+local function is_listed(buf)
+    return buf and vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted
+end
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function(args)
         local buf = args.buf
-
-        if vim.bo[buf].buflisted and buf ~= current_listed then
-            previous_listed = current_listed
-            current_listed = buf
-        end
+        if not is_listed(buf) then return end
+        if buf == current_listed then return end
+        previous_listed = current_listed
+        current_listed = buf
     end,
 })
-vim.keymap.set("n", "<tab>", function()
-    if previous_listed
-        and vim.api.nvim_buf_is_valid(previous_listed)
-        and vim.bo[previous_listed].buflisted then
-        vim.cmd("buffer " .. previous_listed)
+vim.keymap.set("n", "<Tab>", function()
+    if vim.api.nvim_get_current_buf() == current_listed then
+        vim.api.nvim_set_current_buf(previous_listed)
+    else
+        vim.api.nvim_set_current_buf(current_listed)
     end
-end, {})
+end, { silent = true })

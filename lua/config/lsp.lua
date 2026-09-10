@@ -99,3 +99,6 @@ vim.lsp.config("zls", {
     }
 })
 vim.lsp.enable("zls")
+
+vim.lsp.config("wgsl_analyzer", { on_attach = on_attach, capabilities = capabilities })
+vim.lsp.enable("wgsl_analyzer")
